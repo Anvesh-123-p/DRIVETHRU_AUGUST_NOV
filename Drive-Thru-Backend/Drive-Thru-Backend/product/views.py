@@ -8,6 +8,7 @@ from .serializers import RoundSerializer,DriveSerializer, UserSerializer
 class UserView(APIView):
     def get(self, request):
         param = request.GET
+        print("Hi")
         if bool(param.get('id')):
             item = get_object_or_404(User, id=param.get('id'))
             serializer = UserSerializer(item)
@@ -70,6 +71,8 @@ class UserView(APIView):
         item = None
         if bool(param.get('id')):
             item = get_object_or_404(User, id=param.get('id'))
+        elif bool(param.get('email')):
+            item = get_object_or_404(User, email=param.get('email'))
         item.delete()
         return Response({"status": "success", "data": "Item Deleted"},status=200)
 
