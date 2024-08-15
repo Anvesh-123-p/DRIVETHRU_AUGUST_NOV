@@ -1,7 +1,7 @@
 from distutils.command.upload import upload
 from django.db import models
 
-
+from django.core.exceptions import ValidationError
 class User(models.Model):
 
     first_name = models.CharField(max_length=32)
@@ -36,11 +36,54 @@ class User(models.Model):
         ('TPO', 'Tpo'),
         ('HOD', 'HOD'),
     )
-    type=models.CharField(max_length=3,choices=TYPE_CHOICES,default="ST")
+    user_type=models.CharField(max_length=3,choices=TYPE_CHOICES,default="ST")
+     # Status field with choices
+    STATUS_CHOICES = (
+        ('AC', 'Active'),
+        ('NAC', 'Not Active'),
+    )
+    status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='NAC')
+    roll_number = models.CharField(max_length=10, unique=True, null=True, blank= True)
+    def clean(self, update_fields=None):
+        """
+        Custom validation logic for model fields.
+        """
+        # Check if we are updating fields
+        if update_fields is None:
+            update_fields = set()
 
-    def __str__(self):
-        return self.email + " (" +  self.first_name + " )"
+        if 'resume_link' not in update_fields and self.user_type == 'ST':
+            # Only raise validation error if resume_link is not set
+            if not self.resume_link:
+                raise ValidationError('Resume link is mandatory for students.')
+        
+        if 'percentage' not in update_fields and self.user_type == 'ST':
+            # Only raise validation error if percentage is not set
+            if self.percentage == 0:
+                raise ValidationError('Percentage is mandatory for students.')
 
+        if 'roll_number' not in update_fields and self.user_type == 'ST':
+            # Only raise validation error if roll_number is not set
+            if not self.roll_number:
+                raise ValidationError('roll_number is mandatory for students.')
+
+    def save(self, *args, **kwargs):
+        """
+        Override the save method to include custom logic before saving the model.
+        """
+        update_fields = kwargs.get('update_fields', None)
+
+        # Apply validation for the save method
+        self.clean(update_fields=update_fields)
+
+        # Set status based on user type if not already provided
+        if update_fields is None or 'status' not in update_fields:
+            if self.user_type == 'ST':
+                    self.status = 'NAC'  # Default status for students
+            else:
+                self.status = 'AC'  # Default status for others
+
+        super().save(*args, **kwargs)
 
 
 class Drives(models.Model):
@@ -60,7 +103,19 @@ class Drives(models.Model):
     )
     status = models.CharField(max_length=2, choices=status_ch)
     enrolled_students= models.ManyToManyField(User,null=True,blank=True)
+    TECH = 'tech'
+    NON_TECH = 'non-tech'
+    ROLE_CHOICES = [
+        (TECH, 'Technical'),
+        (NON_TECH, 'Non-Technical'),
+    ]
 
+    year = models.PositiveIntegerField(default=2022)
+    role = models.CharField(
+        max_length=10,
+        choices=ROLE_CHOICES,
+        default=TECH,
+    )
     def __str__(self):
         return self.company_name + " (" +  self.company_name + " )"
 
@@ -83,3 +138,36 @@ class Round(models.Model):
         return 'ROunds'
 
 
+
+
+class Approval(models.Model):
+    STATUS_CHOICES = [
+        ('pending', 'Pending'),
+        ('rejected', 'Rejected'),
+        ('approved','Approved'),
+
+    ]
+    stu_name = models.CharField(max_length=100)
+    roll_number = models.CharField(max_length=100)
+    stu_email=models.EmailField()
+    hod_id = models.ForeignKey(User, on_delete=models.CASCADE, limit_choices_to={'user_type': 'HOD'}, related_name='hod_approvals')
+    dept = models.CharField(max_length=100)
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default='pending')
+    APPROVAL_TYPE_CHOICES = [
+        ('new_stu_account','stu_account'),
+        ('percentage', 'Percentage'),
+        ('dept', 'Department'),
+        ('clg_name', 'College Name'),
+
+    ]
+
+    approval_type = models.CharField(
+        max_length=20,
+        choices=APPROVAL_TYPE_CHOICES,
+        default='percentage',
+    )
+    old_data = models.TextField(null=True, blank= True)  
+    new_data = models.TextField(null=True, blank= True)  
+    
+    def __str__(self):
+        return f"{self.stu_email} - {self.dept} - {self.status}"
