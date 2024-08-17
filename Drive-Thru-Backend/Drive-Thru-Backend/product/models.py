@@ -141,12 +141,14 @@ class Round(models.Model):
 
 
 class Approval(models.Model):
+    approval_id = models.AutoField(primary_key=True)
     STATUS_CHOICES = [
         ('pending', 'Pending'),
         ('rejected', 'Rejected'),
         ('approved','Approved'),
 
     ]
+    
     stu_name = models.CharField(max_length=100)
     roll_number = models.CharField(max_length=100)
     stu_email=models.EmailField()
