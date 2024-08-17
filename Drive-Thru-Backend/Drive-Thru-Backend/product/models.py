@@ -1,7 +1,18 @@
 from distutils.command.upload import upload
 from django.db import models
+import re
 
 from django.core.exceptions import ValidationError
+def validate_password(password):  
+        if len(password) < 8:  
+            return False  
+        if not re.search("[a-z]", password):  
+            return False  
+        if not re.search("[A-Z]", password):  
+            return False  
+        if not re.search("[0-9]", password):  
+            return False  
+        return True
 class User(models.Model):
 
     first_name = models.CharField(max_length=32)
@@ -44,11 +55,17 @@ class User(models.Model):
     )
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='NAC')
     roll_number = models.CharField(max_length=10, unique=True, null=True, blank= True)
+    reset_password=models.CharField(null=True, blank= True,max_length=10)
+    
     def clean(self, update_fields=None):
         """
         Custom validation logic for model fields.
         """
         # Check if we are updating fields
+        
+        if not validate_password(self.password): 
+            raise ValidationError({'Password should atleast have 8 charactes'})
+
         if update_fields is None:
             update_fields = set()
 
@@ -110,12 +127,12 @@ class Drives(models.Model):
         (NON_TECH, 'Non-Technical'),
     ]
 
-    year = models.PositiveIntegerField(default=2022)
+    year = models.PositiveIntegerField(null=True, blank= True)
     role = models.CharField(
         max_length=10,
         choices=ROLE_CHOICES,
-        default=TECH,
-    )
+        null=True, blank= True
+                )
     def __str__(self):
         return self.company_name + " (" +  self.company_name + " )"
 
