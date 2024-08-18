@@ -56,7 +56,7 @@ class User(models.Model):
     status = models.CharField(max_length=3, choices=STATUS_CHOICES, default='NAC')
     roll_number = models.CharField(max_length=10, unique=True, null=True, blank= True)
     reset_password=models.CharField(null=True, blank= True,max_length=10)
-    
+    graduation_year=models.PositiveIntegerField(null=True, blank= True, default=2024)
     def clean(self, update_fields=None):
         """
         Custom validation logic for model fields.
@@ -83,6 +83,10 @@ class User(models.Model):
             # Only raise validation error if roll_number is not set
             if not self.roll_number:
                 raise ValidationError('roll_number is mandatory for students.')
+        if 'graduation_year' not in update_fields and self.user_type == 'ST':
+            # Only raise validation error if graduation_year is not set
+            if not self.graduation_year:
+                raise ValidationError('graduation_year is mandatory for students.')
 
     def save(self, *args, **kwargs):
         """
@@ -119,7 +123,11 @@ class Drives(models.Model):
         ('CA', 'Cancelled'),
     )
     status = models.CharField(max_length=2, choices=status_ch)
-    enrolled_students= models.ManyToManyField(User,null=True,blank=True)
+
+    enrolled_students = models.ManyToManyField(User, blank=True, related_name='enrolled_drives')
+    selected_students = models.ManyToManyField(User, blank=True, related_name='selected_drives')
+
+
     TECH = 'tech'
     NON_TECH = 'non-tech'
     ROLE_CHOICES = [
@@ -190,3 +198,5 @@ class Approval(models.Model):
     
     def __str__(self):
         return f"{self.stu_email} - {self.dept} - {self.status}"
+
+

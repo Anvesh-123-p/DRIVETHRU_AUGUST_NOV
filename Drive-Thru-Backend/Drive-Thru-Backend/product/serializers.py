@@ -48,3 +48,23 @@ class ApprovalSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+
+class DriveOfferSerializer(serializers.ModelSerializer):
+    company_name = serializers.CharField(source='company_name')
+    ctc = serializers.IntegerField()
+
+    class Meta:
+        model = Drives
+        fields = ['company_name', 'ctc']
+
+class StudentOfferSerializer(serializers.ModelSerializer):
+    full_name = serializers.SerializerMethodField()
+    number_of_offers = serializers.IntegerField(source='selected_drives.count', read_only=True)
+    offers = DriveOfferSerializer(source='selected_drives', many=True)
+
+    class Meta:
+        model = User
+        fields = ['full_name', 'roll_number', 'number_of_offers', 'offers']
+
+    def get_full_name(self, obj):
+        return f"{obj.first_name} {obj.last_name}"

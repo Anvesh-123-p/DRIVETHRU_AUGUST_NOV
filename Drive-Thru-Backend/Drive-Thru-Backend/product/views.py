@@ -645,3 +645,64 @@ class PasswordResetView(APIView):
                 return Response({"error": "Invalid reset code."}, status=status.HTTP_200_OK)
         return Response({"error": "Email and reset code are required."}, status=status.HTTP_400_BAD_REQUEST)
     
+class StudentOffersAPIView(APIView):
+
+    def get(self, request):
+        year = request.query_params.get('year')
+        role = request.query_params.get('role')
+        dept=request.query_params.get('dept')
+        email=request.query_params.get('email')
+        roll_number=request.query_params.get('roll_number')
+        print(year, role,dept,email,roll_number)
+        if email or roll_number:
+            if role:
+                drives = Drives.objects.filter(role=role)
+            else:
+                drives = Drives.objects.all()
+        else:
+            if role:
+                drives = Drives.objects.filter(year=year, role=role)
+            else:
+                drives = Drives.objects.filter(year=year)
+
+        print(drives)
+        student_data = []
+        for drive in drives:
+            selected_students = drive.selected_students.all()
+            if email:
+                selected_students=User.objects.filter(email=email)
+            if roll_number:
+                selected_students=User.objects.filter(roll_number=roll_number)
+            if dept:
+                print("dept")
+                selected_students = selected_students.filter(dept=dept)
+            print(selected_students)
+       
+            for student in selected_students:
+             
+                offer_data = {
+                    "company_name": drive.company_name,
+                    "ctc": drive.ctc,
+                    "role":drive.role
+                }
+                
+                # Check if the student is already in the student_data list
+                existing_student = next((item for item in student_data if item["email"] == student.email), None)
+                
+                if existing_student:
+                    existing_student["offers"].append(offer_data)
+                    existing_student["offers_count"] = len(existing_student["offers"])
+
+                else:
+                    student_data.append({
+                        "first_name": student.first_name,
+                        "last_name": student.last_name,
+                        "email": student.email,
+                        "roll_number": student.roll_number,
+                        "offers": [offer_data],
+                        "offers_count":1,
+                        "Graduation_year":student.graduation_year,
+                        
+                    })
+        
+        return Response(student_data, status=status.HTTP_200_OK)
