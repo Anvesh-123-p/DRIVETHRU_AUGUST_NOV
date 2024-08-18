@@ -653,8 +653,12 @@ class StudentOffersAPIView(APIView):
         dept=request.query_params.get('dept')
         email=request.query_params.get('email')
         roll_number=request.query_params.get('roll_number')
-        print(year, role,dept,email,roll_number)
-        if email or roll_number:
+        company_name=request.query_params.get('company_name')
+        print(year, role,dept,email,roll_number,company_name)
+        if company_name:
+
+            drives = Drives.objects.filter(company_name=company_name)
+        elif email or roll_number:
             if role:
                 drives = Drives.objects.filter(role=role)
             else:
@@ -679,11 +683,12 @@ class StudentOffersAPIView(APIView):
             print(selected_students)
        
             for student in selected_students:
-             
+                
                 offer_data = {
                     "company_name": drive.company_name,
                     "ctc": drive.ctc,
-                    "role":drive.role
+                    "role":drive.role,
+                    "year":drive.year
                 }
                 
                 # Check if the student is already in the student_data list
@@ -704,5 +709,9 @@ class StudentOffersAPIView(APIView):
                         "Graduation_year":student.graduation_year,
                         
                     })
+                if not company_name:
+                    student_data = sorted(student_data, key=lambda x: x["offers_count"], reverse=True)
+                else:
+                    student_data = sorted(student_data, key=lambda x: x["offers"][0]["year"], reverse=True)
         
         return Response(student_data, status=status.HTTP_200_OK)

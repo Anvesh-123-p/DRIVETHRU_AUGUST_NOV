@@ -1,8 +1,22 @@
 from distutils.command.upload import upload
 from django.db import models
 import re
+import os
 
 from django.core.exceptions import ValidationError
+def upload(instance,file_name):
+    return ''.join(["resumes/", instance.email.split(".")[0]+"."+file_name.split(".")[1]])
+
+
+def upload_profile(instance,file_name):
+    return ''.join(["profile/", instance.email.split(".")[0]+"."+file_name.split(".")[1]])
+
+
+# def upload_profile(instance,file_name):
+#     return ''.join(["company_name/", instance.company_name(".")[0]+"."+file_name.split(".")[1]])
+
+# # 
+
 def validate_password(password):  
         if len(password) < 8:  
             return False  
@@ -41,7 +55,7 @@ class User(models.Model):
     gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
     mobile_number = models.BigIntegerField()
     password = models.CharField(max_length=256)
-    resume_link=models.CharField(max_length=256, null=True, blank= True)
+    resume_link=models.FileField( null=True, blank= True, upload_to=upload)
     TYPE_CHOICES = (
         ('ST', 'Student'),
         ('TPO', 'Tpo'),
@@ -57,6 +71,9 @@ class User(models.Model):
     roll_number = models.CharField(max_length=10, unique=True, null=True, blank= True)
     reset_password=models.CharField(null=True, blank= True,max_length=10)
     graduation_year=models.PositiveIntegerField(null=True, blank= True, default=2024)
+
+    profile_photo=models.FileField( null=True, blank= True, upload_to=upload_profile)
+
     def clean(self, update_fields=None):
         """
         Custom validation logic for model fields.
@@ -103,6 +120,8 @@ class User(models.Model):
                     self.status = 'NAC'  # Default status for students
             else:
                 self.status = 'AC'  # Default status for others
+
+
 
         super().save(*args, **kwargs)
 
