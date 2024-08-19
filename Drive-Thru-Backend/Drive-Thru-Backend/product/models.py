@@ -12,10 +12,9 @@ def upload_profile(instance,file_name):
     return ''.join(["profile/", instance.email.split(".")[0]+"."+file_name.split(".")[1]])
 
 
-# def upload_profile(instance,file_name):
-#     return ''.join(["company_name/", instance.company_name(".")[0]+"."+file_name.split(".")[1]])
+def upload_jd(instance,file_name):
+    return ''.join(["drives/", instance.company_name+"."+file_name.split(".")[1]])
 
-# # 
 
 def validate_password(password):  
         if len(password) < 8:  
@@ -117,12 +116,9 @@ class User(models.Model):
         # Set status based on user type if not already provided
         if update_fields is None or 'status' not in update_fields:
             if self.user_type == 'ST':
-                    self.status = 'NAC'  # Default status for students
+                    self.status = 'NAC'  
             else:
-                self.status = 'AC'  # Default status for others
-
-
-
+                self.status = 'AC'  
         super().save(*args, **kwargs)
 
 
@@ -133,7 +129,7 @@ class Drives(models.Model):
     num_of_rounds = models.IntegerField()
     description = models.CharField(max_length=256)
     eligible_percentage = models.BigIntegerField()
-    jd_link = models.CharField(max_length=256)
+    jd_link = models.FileField( null=True, blank= True, upload_to=upload_jd)
     start_date = models.DateField()
     status_ch = (
         ('NS', 'Not Started'),
