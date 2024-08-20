@@ -13,7 +13,7 @@ def upload_profile(instance,file_name):
 
 
 def upload_jd(instance,file_name):
-    return ''.join(["drives/", instance.company_name+"."+file_name.split(".")[1]])
+    return ''.join(["drives/", instance.company_name+"_"+instance.year+"_"+instance.role+"."+file_name.split(".")[1]])
 
 
 def validate_password(password):  
