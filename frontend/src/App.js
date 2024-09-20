@@ -7,6 +7,8 @@ import Home from './Components/StudentComponents/StudentDashboard/Home';
 import StudentSummary from './Components/StudentComponents/StudentSummary';
 import EditProfile from './Components/StudentComponents/EditProfile/EditProfile';
 import ViewOfferLetter from './Components/StudentComponents/ViewOfferLetter/ViewOfferLetter';
+import Login from './ReUseableComponents/Login/Login';
+import SignUp from './ReUseableComponents/SignUp/SignUp';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
         element:<ViewOfferLetter/>
       }
     ]
+  },
+  {
+    path:"Login",
+    element:<Login/>
+  },
+  {
+    path:"Signup",
+    element:<SignUp/>
   }
 ])
 
