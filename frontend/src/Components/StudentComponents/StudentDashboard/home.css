@@ -1,0 +1,25 @@
+.home{
+    height: 100%;
+    width: 100%;
+}
+.dashboard{
+    display: flex;
+    height: 83vh;
+    overflow-y: scroll;
+}
+
+.sidebar-container{
+    width: 20%;
+    background-color:#1b0064;
+    border-right: 1px solid gray;
+}
+
+.summary-container{
+    width: 80%;
+}
+
+@media screen and (max-width:600px) {
+    .sidebar-container{
+        height: 100%;
+    }
+}

@@ -1,0 +1,44 @@
+*{
+  box-sizing: border-box;
+}
+
+.sidebar{
+  margin-top: 10%;
+}
+ 
+.sidebar-item{
+  width: 100%;
+  padding:10px 15px;
+}
+
+.sidebar-link{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 22px;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+}
+.pi{
+  line-height: -1;
+}
+.icon{
+  margin-right: 8px;
+}
+.active{
+  background-color: #3b247b;
+}
+
+@media screen and (max-width: 600px){
+  /* For mobile phones: */
+  .sidebar-link{
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 350px){
+  /* For mobile phones: */
+  .sidebar-link{
+    font-size: 6px;
+  }
+}
