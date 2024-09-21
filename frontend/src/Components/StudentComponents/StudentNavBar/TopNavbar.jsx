@@ -5,8 +5,8 @@ import "./topNavBar.css"
 const TopNavbar=()=>{
     const heading="STUDENT DASHBOARD"
     return(
-        <div>
-            <Navbar className="bg-body-tertiary" >
+        <div className="top-navbar">
+            <Navbar  >
                 <Container>
                     <Navbar.Brand href="home"><b className='heading'>{heading}</b></Navbar.Brand>
                     <Navbar.Toggle />

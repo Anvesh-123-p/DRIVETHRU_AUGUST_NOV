@@ -7,8 +7,8 @@
 }
 
 .login-form{
-    margin-left: 500px;
-    width: 90vh;
+    margin-left: 550px;
+    width: 75vh;
     padding: 40px;
     background-color: #fff;
     border-radius: 10px;
@@ -47,11 +47,8 @@
 
 .semi-circle-background{
     position: absolute;
-    top: -10px;
-    bottom: 0px;
-    left: 0;
     width: 35%;
-    height: 105%;
+    height: 100%;
     background-color: #251070;
     border-radius: 0 50% 50% 0;
 }
@@ -65,6 +62,9 @@
 }
 
 @media screen and (max-width:1200px) {
+    .login-container{
+        overflow-y: hidden;
+    }
     .login-form{
         margin-left: 400px;
     }

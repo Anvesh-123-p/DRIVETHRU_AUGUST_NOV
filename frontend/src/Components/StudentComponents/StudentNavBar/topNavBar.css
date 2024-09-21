@@ -2,6 +2,10 @@
   font-size: 30px;
 }
 
+.top-navbar{
+  background-color: rgb(232, 233, 235);
+}
+
 @media(max-width:1400px) {
     .navbar {
       min-height: 100px;

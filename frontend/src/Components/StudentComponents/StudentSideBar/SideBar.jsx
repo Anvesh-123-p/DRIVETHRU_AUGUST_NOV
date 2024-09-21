@@ -26,7 +26,7 @@ const SideBar=()=>{
                 <i className="pi pi-pencil mr-2 icon"></i> Edit Profile
                 </Link>
             </div>
-            <div className={`sidebar-item ${activeLink===3 ? "active" : ""}`}
+            <div className={`sidebar-item-logout ${activeLink===3 ? "active" : ""}`}
             onClick={()=>setActiveLink(3)}>
                 <Link to="/Login" className="sidebar-link">
                 <i className="pi pi-sign-out mr-2 icon"></i> Log Out

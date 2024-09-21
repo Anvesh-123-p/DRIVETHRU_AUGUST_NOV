@@ -5,10 +5,18 @@
 .sidebar{
   margin-top: 10%;
 }
- 
+
 .sidebar-item{
   width: 100%;
   padding:10px 15px;
+}
+
+.sidebar-item-logout{
+  width: 100%;
+  padding: 0 0 20px 15px;
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
 }
 
 .sidebar-link{
@@ -23,6 +31,7 @@
   line-height: -1;
 }
 .icon{
+  margin-top: 4px;
   margin-right: 8px;
 }
 .active{
