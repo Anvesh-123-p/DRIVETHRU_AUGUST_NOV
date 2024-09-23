@@ -1,7 +1,7 @@
 .edit-profile-body{
     display: flex;
     align-items: center;
-    width: 1005s;
+    width: 100%;
     padding: 20px;
 }
 .edit-profile-form{

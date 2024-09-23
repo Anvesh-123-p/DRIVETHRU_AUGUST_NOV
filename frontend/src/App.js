@@ -9,6 +9,7 @@ import EditProfile from './Components/StudentComponents/EditProfile/EditProfile'
 import ViewOfferLetter from './Components/StudentComponents/ViewOfferLetter/ViewOfferLetter';
 import Login from './ReUseableComponents/Login/Login';
 import SignUp from './ReUseableComponents/SignUp/SignUp';
+import ChangePassword from './ReUseableComponents/ChangePassword/ChangePassword';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path:"/home/ViewOfferLetter",
         element:<ViewOfferLetter/>
+      },
+      {
+        path:"/home/changePassowrd",
+        element:<ChangePassword/>
       }
     ]
   },
