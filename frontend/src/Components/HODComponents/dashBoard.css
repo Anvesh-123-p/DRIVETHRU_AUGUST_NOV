@@ -1,0 +1,201 @@
+.hod-home{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+}
+
+.hod-topnav{
+    height: 15vh;
+}
+
+.hod-dashboard{
+    display: flex;
+    height: 85vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.hod-sidebar-container{
+    height: 100%;
+    width: 20%;
+    background-color:#251070;
+    border-right: 1px solid gray;
+    box-sizing: border-box;
+}
+
+.hod-summary-container{
+    background-color: rgb(232, 233, 235);
+    height: 100%;
+    width: 80%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+/* -----------------NAVBAR---------------------- */
+.heading{
+    font-size: 30px;
+  }
+  
+.top-navbar{
+  padding-top: 1vh;
+  height: 15vh;
+  background-color: rgb(255, 255, 255);
+}
+  
+/* ----------------------SIDEBAR--------------------- */
+  
+  .sidebar{
+    margin-top: 10%;
+  }
+  
+  .sidebar-item{
+    width: 100%;
+    padding:10px 15px;
+  }
+  
+  .sidebar-item-logout{
+    width: 100%;
+    padding: 0 0 20px 15px;
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+  }
+  
+  .sidebar-link{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-start;
+  }
+  .pi{
+    line-height: -1;
+  }
+  .icon{
+    margin-top: 4px;
+    margin-right: 8px;
+  }
+
+
+@media screen and (max-width:1024px) {
+    .hod-dashboard {
+        height: 90vh;
+    }
+    .hod-topnav{
+        height: 10vh;
+    }
+    /* -----TopNav----- */
+    .top-navbar{
+      padding: 3vh;
+      height: 10vh;
+    }
+    .heading{
+      font-size: 20px;
+    }
+    .navbar-text{
+      font-size: 15px;
+    }
+}
+  
+  @media screen and (max-width:540px) {
+    /* -----------Nav Bar-------- */
+    .top-navbar{
+      padding: 1vh;
+    }
+    .heading{
+      font-size: 15px;
+    }
+    .navbar-text{
+      font-size: 13px;
+    }
+
+    /* ---------Side Bar--------- */
+    .sidebar-link{
+        font-size: 10px;
+    }
+  }
+
+  /* -------------Summary----------- */
+
+.search-bar{
+    padding: 30px 30px 0px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.search-input {
+    width: 50vh;
+    height: 6vh;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 6px;
+    background-color: white;
+}
+.search-btn{
+    border: 1px solid black;
+    border-radius: 6px;
+    color: white;
+    background-color: #251070;
+}
+/* ----------Card Component------------- */
+.cards-class{
+    padding: 30px
+}
+.enroll-btn{
+    margin-top: 0px;
+    background-color: rgb(232, 233, 235);
+}
+.card-footer{
+    display: flex;
+    justify-content: space-between;
+}
+.card-text{
+    margin: 0;
+}
+.card{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.card:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+  @media screen and (max-width:500px) and (max-height:932px) {
+    /* ---------sideBar--------- */
+    .sidebar-item{
+      padding:10px 10px;
+    }
+    .sidebar-item-logout{
+      padding: 0 0 20px 10px;
+    }
+    .sidebar-link{
+      font-size: 14px;
+    }
+    .icon{
+      display: none;
+    }
+
+    /* ---------------Summary--------- */
+    .cards-class{
+        padding: 12px;
+    }
+    .search-bar{
+        padding: 12px 12px 0px 12px;
+    }
+  }
+
+  @media screen and (max-width:375px) {
+    .heading{
+      font-size: 10px;
+    }
+    .navbar-text{
+      font-size: 9px;
+    }
+  }
+
+  @media screen and (max-width: 343px){
+    /* For mobile phones: */
+    .sidebar-link{
+      font-size: 6px;
+    }
+  }

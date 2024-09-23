@@ -10,6 +10,9 @@ import ViewOfferLetter from './Components/StudentComponents/ViewOfferLetter/View
 import Login from './ReUseableComponents/Login/Login';
 import SignUp from './ReUseableComponents/SignUp/SignUp';
 import ChangePassword from './ReUseableComponents/ChangePassword/ChangePassword';
+import Dashboard from './Components/HODComponents/DashBoard';
+import StudentList from './Components/HODComponents/StudentList';
+import ApprovalPage from './Components/HODComponents/ApprovalPage';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +36,18 @@ const router = createBrowserRouter([
         element:<ChangePassword/>
       }
     ]
+  },
+  {
+    path:"HODdashboard",
+    element:<Dashboard/>
+  },
+  {
+    path:"HODStudentList",
+    element:<StudentList/>
+  },
+  {
+    path:"HODApprovalPage",
+    element:<ApprovalPage/>
   },
   {
     path:"Login",
