@@ -3,19 +3,18 @@
 }
 
 .top-navbar{
-  background-color: rgb(232, 233, 235);
+  padding-top: 1vh;
+  height: 15vh;
+  background-color: rgb(255, 255, 255);
 }
 
-@media(max-width:1400px) {
-    .navbar {
-      min-height: 100px;
-    }
-  }
 
-@media(max-width:1000px) {
-  .navbar {
-    min-height: 80px;
-  }.heading{
+@media screen and (max-width:1024px) {
+  .top-navbar{
+    padding: 3vh;
+    height: 10vh;
+  }
+  .heading{
     font-size: 20px;
   }
   .navbar-text{
@@ -23,7 +22,10 @@
   }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:540px) {
+  .top-navbar{
+    padding: 1vh;
+  }
   .heading{
     font-size: 15px;
   }
@@ -31,7 +33,7 @@
     font-size: 13px;
   }
 }
-@media screen and (max-width:350px) {
+@media screen and (max-width:375px) {
   .heading{
     font-size: 10px;
   }

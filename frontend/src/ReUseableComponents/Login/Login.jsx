@@ -21,15 +21,10 @@ const Login=()=>{
                         <input type="password" id="password" className="form-control" />
                     </div>
 
-                    <div className="form-group-atlast">
-                        <div>
-                            <input type="checkbox" id="rememberMe"/>
-                            <label htmlFor="rememberMe"> Remember Me</label>
-                        </div>
-                        <div>
-                            <Link to="/Login"> Forgot Password?</Link>
-                        </div>
+                    <div className="form-group">
+                        <Link to="/Login"> Forgot Password?</Link>
                     </div>
+                    
                     <button type="submit" className="btn btn-class" >Sign In</button>
                 </form>
 

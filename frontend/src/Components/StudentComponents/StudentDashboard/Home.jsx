@@ -1,13 +1,15 @@
 import TopNavbar from "../StudentNavBar/TopNavbar";
 import SideBar from "../StudentSideBar/SideBar";
-import StudentSummary from "../StudentSummary"
+import StudentSummary from "../StudentSummary/StudentSummary"
 import '../StudentDashboard/home.css'
 import { Outlet } from "react-router-dom";
 
 const Home=()=>{
     return(
         <div className="home">
-        <TopNavbar/>
+        <div className="top-nav">
+            <TopNavbar/>
+        </div>
         <div className="dashboard">
             <div className="sidebar-container">
                 <SideBar/>

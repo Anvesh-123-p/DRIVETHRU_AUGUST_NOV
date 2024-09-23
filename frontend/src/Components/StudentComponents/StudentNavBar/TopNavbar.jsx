@@ -6,7 +6,7 @@ const TopNavbar=()=>{
     const heading="STUDENT DASHBOARD"
     return(
         <div className="top-navbar">
-            <Navbar  >
+            <Navbar>
                 <Container>
                     <Navbar.Brand href="home"><b className='heading'>{heading}</b></Navbar.Brand>
                     <Navbar.Toggle />

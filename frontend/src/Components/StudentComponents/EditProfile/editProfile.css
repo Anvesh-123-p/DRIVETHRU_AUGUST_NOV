@@ -1,0 +1,13 @@
+.edit-profile-body{
+    display: flex;
+    align-items: center;
+    width: 1005s;
+    padding: 20px;
+}
+.edit-profile-form{
+    width: 100%;
+}
+.edit-profile-buttons{
+    display: flex;
+    justify-content: space-between;
+}
