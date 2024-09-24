@@ -1,14 +1,14 @@
-.studentlist-container{
+.approvalpage-container{
     position: fixed;
     height: 100vh;
     width: 100%;
 }
 
-.studentlist-topnav{
+.approvalpage-topnav{
     height: 15vh;
 }
 
-.body-container{
+.approvalpage-body-container{
     display: flex;
     flex-direction: column;
     height: 85vh;
@@ -16,20 +16,20 @@
     overflow-x: hidden;
 }
 
-.studentlist-top-navbar{
+.approvalpage-top-navbar{
     padding-top: 1vh;
     height: 15vh;
     background-color: #251070;
 }
 
-.studentlist-heading{
+.approvalpage-heading{
     color: white;
     margin-left: 25rem;
     font-size: 30px;
 }
 
-.back-btn{
-    width: 14vh;
+.approvalpage-back-btn{
+    width: 15vh;
     background-color: #572af9;
     border: 0;
     display: flex;
@@ -39,84 +39,67 @@
     padding-top: 2px;
 }
 
-.back-icon{
+.approvalpage-back-icon{
     font-weight: bold;
     color: #ffffff;
 }
 
-.search-bar-nav{
-    height: 15vh;
-    padding: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.approvalpage-tabs{
+    
 }
 
-.studentlist-table{
+.approvalpage-table{
     height: 70vh;
 }
 
-.search-input {
-    margin: 4px;
-    width: 50vh;
-    height: 6vh;
+.comment-input{
     border: 1px solid rgb(0, 0, 0);
     border-radius: 6px;
     background-color: white;
 }
 
-.table-head{
-    color: #251070;
-    background-color: #33169d;
+.reject-button{
+    margin-left: 5px;
 }
 
 @media screen and (max-width:1024px) {
-    .body-container{
+    .approvalpage-container{
         height: 90vh;
     }
-    .studentlist-topnav{
+    .approvalpage-topnav{
         height: 10vh;
     }
     /* -----TopNav----- */
-    .studentlist-top-navbar{
+    .approvalpage-top-navbar{
         padding: 0;
         height: 10vh;
     }
-    .studentlist-top-navbar .navbar{
+    .approvalpage-top-navbar .navbar{
         padding: 20px;
     }
-    .studentlist-heading{
+    .approvalpage-heading{
         margin-left: 17rem;
     }
-    
 }
 @media screen and (min-height:1023px) {
-    .search-bar-nav{
-        display: flex;
-        flex-direction: column;
-        justify-content: none;
-    }
-    .search-input {
-        width: 40vh;
-        height: 4vh;
-    }
+
 }
 
 @media screen and (max-width:1024px) and (max-height:600px){
-    .studentlist-top-navbar .navbar{
+    .approvalpage-top-navbar .navbar{
         padding: 0px;
     }
 }
 
 @media screen and (max-width:540px) {
     /* -----------Nav Bar-------- */
-    .studentlist-top-navbar{
+    .approvalpage-top-navbar{
       padding: 0px;
     }
-    .studentlist-top-navbar .navbar{
+    .approvalpage-top-navbar .navbar{
         padding: 14px;
     }
-    .studentlist-heading{
+    .approvalpage-heading{
       padding-top: 5px;
       margin-left: 7rem;
       font-size: 20px;
@@ -126,31 +109,23 @@
       font-size: 13px;
     }
     /* --------Body---------- */
-    .search-bar-nav{
-        height: 16vh;
-        padding: 0px;
-        display: flex;
-        flex-direction: column;
-    }
-    .studentlist-table{
+    .approvalpage-table{
         height: 80vh;
     }
-    .search-input {
-        margin-left: 8px;
-        width: 30vh;
-        height: 4vh;
+    .reject-button{
+        margin-left: 0px;
     }
 }
 
 @media screen and (max-width:430px) {
     /* -----------Nav Bar-------- */
-    .studentlist-top-navbar{
+    .approvalpage-top-navbar{
       padding: 5px;
     }
-    .studentlist-top-navbar .navbar{
+    .approvalpage-top-navbar .navbar{
         padding: 7px;
     }
-    .studentlist-heading{
+    .approvalpage-heading{
       padding-top: 5px;
       margin-left: 7rem;
       font-size: 20px;
@@ -159,20 +134,17 @@
     .navbar-text{
       font-size: 13px;
     }
-    .search-bar-nav{
-        height: 15vh;
-    }
 }
 
 @media screen and (max-width:376px) {
     /* -----------Nav Bar-------- */
-    .studentlist-top-navbar{
+    .approvalpage-top-navbar{
       padding: 10px;
     }
-    .studentlist-top-navbar .navbar{
+    .approvalpage-top-navbar .navbar{
         padding: 0px;
     }
-    .studentlist-heading{
+    .approvalpage-heading{
       padding-top: 0px;
       margin-left: 6rem;
       font-size: 15px;
@@ -181,11 +153,5 @@
       font-size: 10px;
     }
     /* --------Body---------- */
-    .search-input {
-        margin-left: 6px;
-        width: 25vh;
-    }
-    .search-bar-nav{
-        height: 15vh;
-    }
+    
 }

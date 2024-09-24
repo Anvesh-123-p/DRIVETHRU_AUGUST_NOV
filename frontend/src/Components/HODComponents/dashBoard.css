@@ -77,45 +77,6 @@
     margin-right: 8px;
   }
 
-
-@media screen and (max-width:1024px) {
-    .hod-dashboard {
-        height: 90vh;
-    }
-    .hod-topnav{
-        height: 10vh;
-    }
-    /* -----TopNav----- */
-    .top-navbar{
-      padding: 3vh;
-      height: 10vh;
-    }
-    .heading{
-      font-size: 20px;
-    }
-    .navbar-text{
-      font-size: 15px;
-    }
-}
-  
-  @media screen and (max-width:540px) {
-    /* -----------Nav Bar-------- */
-    .top-navbar{
-      padding: 1vh;
-    }
-    .heading{
-      font-size: 15px;
-    }
-    .navbar-text{
-      font-size: 13px;
-    }
-
-    /* ---------Side Bar--------- */
-    .sidebar-link{
-        font-size: 10px;
-    }
-  }
-
   /* -------------Summary----------- */
 
 .search-bar{
@@ -134,16 +95,18 @@
 .search-btn{
     border: 1px solid black;
     border-radius: 6px;
+    height: min-content;
+    margin-top: 6px;
     color: white;
     background-color: #251070;
+}
+.search-btn:hover{
+  background-color: #3718a7;
+  color: white;
 }
 /* ----------Card Component------------- */
 .cards-class{
     padding: 30px
-}
-.enroll-btn{
-    margin-top: 0px;
-    background-color: rgb(232, 233, 235);
 }
 .card-footer{
     display: flex;
@@ -158,6 +121,52 @@
 }
 .card:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+
+@media screen and (max-width:1024px) {
+  .hod-dashboard {
+      height: 90vh;
+  }
+  .hod-topnav{
+      height: 10vh;
+  }
+  /* -----TopNav----- */
+  .top-navbar{
+    padding: 3vh;
+    height: 10vh;
+  }
+  .heading{
+    font-size: 20px;
+  }
+  .navbar-text{
+    font-size: 15px;
+  }
+  .search-input {
+    width: 40vh;
+    height: 6vh;
+  }
+}
+
+@media screen and (max-width:540px) {
+  /* -----------Nav Bar-------- */
+  .top-navbar{
+    padding: 1vh;
+  }
+  .heading{
+    font-size: 15px;
+  }
+  .navbar-text{
+    font-size: 13px;
+  }
+  /* ---------Side Bar--------- */
+  .sidebar-link{
+      font-size: 10px;
+  }
+  .search-input {
+    width: 30vh;
+    height: 4vh;
+  }
 }
 
   @media screen and (max-width:500px) and (max-height:932px) {
