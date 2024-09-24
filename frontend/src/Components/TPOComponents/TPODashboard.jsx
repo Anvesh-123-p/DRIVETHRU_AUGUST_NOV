@@ -2,42 +2,49 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import 'primeicons/primeicons.css';
-import "../HODComponents/dashBoard.css";
+import "../TPOComponents/tpodashboard.css"
+import editUser from "../../Assests/EditUser.png"
 
-const Dashboard=()=>{
+const TPODashboard=()=>{
     return(
-    <div className="hod-home">
-        <div className="hod-topnav">
-            <div className="hod-top-navbar">
+        <div className="tpo-home">
+        <div className="tpo-topnav">
+            <div className="tpo-top-navbar">
                 <Navbar>
                     <Container>
-                        <Navbar.Brand href="home"><b className='heading'>HOD DASHBOARD</b></Navbar.Brand>
+                        <Navbar.Brand href="home"><b className='heading'>TPO DASHBOARD</b></Navbar.Brand>
                         <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text>
-                            Signed in as: <Link to="/ChangePassword"> Mark Otto</Link>
+                        <Link to="/TPO/UploadDrive"><button type="button" class="btn btn-sm btn-upload-drive">Upload Drive</button></Link>
+                        <Link to="/ChangePassword"><img src={editUser} className='tpo-editUser' /></Link>
                         </Navbar.Text>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
             </div>
         </div>
-        <div className="hod-dashboard">
-            <div className="hod-sidebar-container">
+        <div className="tpo-dashboard">
+            <div className="tpo-sidebar-container">
                 <div className="sidebar">
                     <div className={`sidebar-item`}>
-                        <Link to="/HOD/Dashboard" className="sidebar-link">
+                        <Link to="/TPO/Dashboard" className="sidebar-link">
                         <i className="pi pi-home mr-2 icon"></i> Home
                         </Link>
                     </div>
                     <div className={`sidebar-item`}>
-                        <Link to="/HOD/StudentList" className="sidebar-link">
-                        <i className="pi pi-eye mr-2 icon"></i> Student List
+                        <Link to="/TPO/StudentDetails" className="sidebar-link">
+                        <i className="pi pi-eye mr-2 icon"></i> Student Details
                         </Link>
                     </div>
                     <div className={`sidebar-item`}>
-                        <Link to="/HOD/ApprovalPage" className="sidebar-link">
-                        <i className="pi pi-pencil mr-2 icon"></i>Students Approval page 
+                        <Link to="/TPO/PlacementHistory" className="sidebar-link">
+                        <i className="pi pi-history mr-2 icon"></i>Placement History
+                        </Link>
+                    </div>
+                    <div className={`sidebar-item`}>
+                        <Link to="/TPO/Statistics" className="sidebar-link">
+                        <i className="pi pi-chart-line mr-2 icon"></i>Statistics
                         </Link>
                     </div>
                     <div className={`sidebar-item-logout`}>
@@ -47,10 +54,10 @@ const Dashboard=()=>{
                     </div>
                 </div>
             </div>
-            <div className='hod-summary-container'>
-                <div className="hod-search-bar">
-                    <input type="text" id="search" className="hod-search-input" />
-                    <button type="button" className="hod-search-btn btn btn-sm" onClick={()=>{}}><span className="pi pi-search"> Search</span></button>
+            <div className='tpo-summary-container'>
+                <div className="tpo-search-bar">
+                    <input type="text" id="search" className="tpo-search-input" />
+                    <button type="button" className="tpo-search-btn btn btn-sm" onClick={()=>{}}><span className="pi pi-search"> Search</span></button>
                 </div>
                 <div className="cards-class">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -126,4 +133,4 @@ const Dashboard=()=>{
     )
 }
 
-export default Dashboard;
+export default TPODashboard;

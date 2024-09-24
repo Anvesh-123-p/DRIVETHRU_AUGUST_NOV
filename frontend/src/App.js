@@ -13,6 +13,11 @@ import ChangePassword from './ReUseableComponents/ChangePassword/ChangePassword'
 import Dashboard from './Components/HODComponents/DashBoard';
 import StudentList from './Components/HODComponents/StudentList';
 import ApprovalPage from './Components/HODComponents/ApprovalPage';
+import TPODashboard from './Components/TPOComponents/TPODashboard';
+import StudentDetails from './Components/TPOComponents/StudentDetails';
+import PlacementHistory from './Components/TPOComponents/PlacementHistory';
+import Statistics from './Components/TPOComponents/Statistics';
+import UploadDrive from './Components/TPOComponents/UploadDrive';
 
 const router = createBrowserRouter([
   {
@@ -31,23 +36,49 @@ const router = createBrowserRouter([
         path:"/home/ViewOfferLetter",
         element:<ViewOfferLetter/>
       },
-      {
-        path:"/home/changePassowrd",
-        element:<ChangePassword/>
-      }
     ]
   },
   {
-    path:"HODdashboard",
-    element:<Dashboard/>
+    path:"/HOD",
+    children:[
+      {
+        path:"/HOD/Dashboard",
+        element:<Dashboard/>
+      },
+      {
+        path:"/HOD/StudentList",
+        element:<StudentList/>
+      },
+      {
+        path:"/HOD/ApprovalPage",
+        element:<ApprovalPage/>
+      },
+    ]
   },
   {
-    path:"HODStudentList",
-    element:<StudentList/>
-  },
-  {
-    path:"HODApprovalPage",
-    element:<ApprovalPage/>
+    path:"/TPO",
+    children:[
+      {
+        path:"/TPO/Dashboard",
+        element:<TPODashboard/>
+      },
+      {
+        path:"/TPO/StudentDetails",
+        element:<StudentDetails/>
+      },
+      {
+        path:"/TPO/PlacementHistory",
+        element:<PlacementHistory/>
+      },
+      { 
+        path:"/TPO/Statistics",
+        element:<Statistics/>
+      },
+      {
+        path:"/TPO/UploadDrive",
+        element:<UploadDrive/>
+      }
+    ]
   },
   {
     path:"Login",
@@ -56,6 +87,10 @@ const router = createBrowserRouter([
   {
     path:"Signup",
     element:<SignUp/>
+  },
+  {
+    path:"ChangePassword",
+    element:<ChangePassword/>
   }
 ])
 

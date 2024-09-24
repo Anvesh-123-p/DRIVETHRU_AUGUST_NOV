@@ -13,7 +13,7 @@ const TopNavbar=()=>{
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
-                        Signed in as: <Link to="/home/changePassowrd"> Mark Otto</Link>
+                        Signed in as: <Link to="/ChangePassword"> Mark Otto</Link>
                     </Navbar.Text>
                     </Navbar.Collapse>
                 </Container>

@@ -22,13 +22,13 @@ const Login=()=>{
                     </div>
 
                     <div className="form-group">
-                        <Link to="/Login"> Forgot Password?</Link>
+                        <Link to="/ChangePassword"> Forgot Password?</Link>
                     </div>
                     
-                    <button type="submit" className="btn btn-class" >Sign In</button>
+                    <button type="submit" className="btn btn-class" >Login In</button>
                 </form>
 
-                <p className="register-link">Don't have an account? <a href="#SignUp">Register here</a></p>
+                <p className="register-link">Don't have an account? <a href="/SignUp">Register here</a></p>
             </div>
         </div>
     )

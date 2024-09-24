@@ -39,7 +39,10 @@
     width: 100%;
     margin-top: 30px;
 }
-
+.btn-class:hover{
+    background-color: rgb(57, 57, 57);
+    color: white;
+}
 .register-link{
     text-align: center;
     margin-top: 10px;

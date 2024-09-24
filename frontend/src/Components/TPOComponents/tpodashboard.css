@@ -1,21 +1,21 @@
-.hod-home{
+.tpo-home{
     position: fixed;
     height: 100vh;
     width: 100%;
 }
 
-.hod-topnav{
+.tpo-topnav{
     height: 15vh;
 }
 
-.hod-dashboard{
+.tpo-dashboard{
     display: flex;
     height: 85vh;
     overflow-y: hidden;
     overflow-x: hidden;
 }
 
-.hod-sidebar-container{
+.tpo-sidebar-container{
     height: 100%;
     width: 20%;
     background-color:#251070;
@@ -23,7 +23,7 @@
     box-sizing: border-box;
 }
 
-.hod-summary-container{
+.tpo-summary-container{
     background-color: rgb(232, 233, 235);
     height: 100%;
     width: 80%;
@@ -36,7 +36,7 @@
     font-size: 30px;
   }
   
-.hod-top-navbar{
+.tpo-top-navbar{
   padding-top: 1vh;
   height: 15vh;
   background-color: rgb(255, 255, 255);
@@ -77,15 +77,34 @@
     margin-right: 8px;
   }
 
+  
+.btn-upload-drive{
+  background-color: #251070;
+  color: white;
+  margin-right: 2px;
+}
+
+.btn-upload-drive:hover{
+  background-color: #3718a7;
+  color: white;
+}
+
+.tpo-editUser{
+  margin-left: 2px;
+  width: 6vh;
+  height: 6vh;
+  border: black solid 1px;
+  border-radius: 50%;
+}
   /* -------------Summary----------- */
 
-.hod-search-bar{
+.tpo-search-bar{
     padding: 30px 30px 0px 30px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
 }
-.hod-search-input {
+.tpo-search-input {
     width: 50vh;
     height: 6vh;
     border: 1px solid rgb(255, 255, 255);
@@ -93,13 +112,13 @@
     background-color: white;
     margin-right: 5px;
 }
-.hod-search-btn{
+.tpo-search-btn{
     border: 1px solid black;
     border-radius: 6px;
     color: white;
     background-color: #251070;
 }
-.hod-search-btn:hover{
+.tpo-search-btn:hover{
   background-color: #3718a7;
   color: white;
 }
@@ -122,16 +141,15 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-
 @media screen and (max-width:1024px) {
-  .hod-dashboard {
+  .tpo-dashboard {
       height: 90vh;
   }
-  .hod-topnav{
+  .tpo-topnav{
       height: 10vh;
   }
   /* -----TopNav----- */
-  .hod-top-navbar{
+  .tpo-top-navbar{
     padding: 3vh;
     height: 10vh;
   }
@@ -141,7 +159,7 @@
   .navbar-text{
     font-size: 15px;
   }
-  .hod-search-input {
+  .tpo-search-input {
     width: 40vh;
     height: 6vh;
     margin-right: 0;
@@ -150,7 +168,7 @@
 
 @media screen and (max-width:540px) {
   /* -----------Nav Bar-------- */
-  .hod-top-navbar{
+  .tpo-top-navbar{
     padding: 1vh;
   }
   .heading{
@@ -163,7 +181,7 @@
   .sidebar-link{
       font-size: 10px;
   }
-  .hod-search-input {
+  .tpo-search-input {
     width: 30vh;
     height: 4vh;
   }
@@ -188,7 +206,7 @@
     .cards-class{
         padding: 12px;
     }
-    .hod-search-bar{
+    .tpo-search-bar{
         padding: 12px 12px 0px 12px;
     }
   }

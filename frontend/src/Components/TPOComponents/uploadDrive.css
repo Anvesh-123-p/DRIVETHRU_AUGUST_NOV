@@ -1,14 +1,14 @@
-.approvalpage-container{
+.upload-drive-container{
     position: fixed;
     height: 100vh;
     width: 100%;
 }
 
-.approvalpage-topnav{
+.upload-drive-topnav{
     height: 15vh;
 }
 
-.approvalpage-body-container{
+.upload-drive-body-container{
     display: flex;
     flex-direction: column;
     height: 85vh;
@@ -16,119 +16,99 @@
     overflow-x: hidden;
 }
 
-.approvalpage-top-navbar{
+.upload-drive-top-navbar{
     padding-top: 1vh;
     height: 15vh;
     background-color: #251070;
 }
-
-.approvalpage-heading{
-    color: white;
-    margin-left: 25rem;
-    font-size: 30px;
-}
-
-.approvalpage-back-btn{
-    width: 15vh;
-    background-color: #572af9;
-    border: 0;
+.upload-drive-navbrand{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    border-radius: 10px;
-    padding-top: 2px;
+}
+.upload-drive-heading{
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
 }
 
-.approvalpage-back-icon{
+.upload-drive-back-btn{
+    background-color: #251070;
+    border: 0;
+    border-radius: 10px;
+}
+
+.upload-drive-back-icon{
     font-weight: bold;
     color: #ffffff;
+    font-size: xx-large;
+    margin-top: 5px;
 }
 
-.approvalpage-table{
-    height: 70vh;
-    padding: 8px;
-}
-
-.approvalpage-table .table{
-    margin: 0;
-}
-
-.comment-input{
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 6px;
-    background-color: white;
-}
-
-.reject-button{
-    margin-left: 5px;
+.upload-drive-editUser{
+    margin-left: 2px;
+    width: 6vh;
+    height: 6vh;
+    border: black solid 1px;
+    border-radius: 50%;
+    float: right;
 }
 
 @media screen and (max-width:1024px) {
-    .approvalpage-container{
+    .upload-drive-body-container{
         height: 90vh;
     }
-    .approvalpage-topnav{
+    .upload-drive-topnav{
         height: 10vh;
     }
     /* -----TopNav----- */
-    .approvalpage-top-navbar{
+    .upload-drive-top-navbar{
         padding: 0;
         height: 10vh;
     }
-    .approvalpage-top-navbar .navbar{
+    .upload-drive-top-navbar .navbar{
         padding: 20px;
     }
-    .approvalpage-heading{
-        margin-left: 17rem;
+    .upload-drive-heading{
+        margin-left: 7px;
     }
-}
-@media screen and (min-height:1023px) {
-
 }
 
 @media screen and (max-width:1024px) and (max-height:600px){
-    .approvalpage-top-navbar .navbar{
+    .upload-drive-top-navbar .navbar{
         padding: 0px;
     }
 }
 
 @media screen and (max-width:540px) {
     /* -----------Nav Bar-------- */
-    .approvalpage-top-navbar{
+    .upload-drive-top-navbar{
       padding: 0px;
     }
-    .approvalpage-top-navbar .navbar{
+    .upload-drive-top-navbar .navbar{
         padding: 14px;
     }
-    .approvalpage-heading{
+    .upload-drive-heading{
       padding-top: 5px;
-      margin-left: 7rem;
+      margin-left: 5px;
       font-size: 20px;
       float: right;
     }
     .navbar-text{
       font-size: 13px;
     }
-    /* --------Body---------- */
-    .approvalpage-table{
-        height: 80vh;
-    }
-    .reject-button{
-        margin-left: 0px;
-    }
 }
 
 @media screen and (max-width:430px) {
     /* -----------Nav Bar-------- */
-    .approvalpage-top-navbar{
+    .upload-drive-top-navbar{
       padding: 5px;
     }
-    .approvalpage-top-navbar .navbar{
+    .upload-drive-top-navbar .navbar{
         padding: 7px;
     }
-    .approvalpage-heading{
+    .upload-drive-heading{
       padding-top: 5px;
-      margin-left: 7rem;
+      margin-left: 5px;
       font-size: 20px;
       float: right;
     }
@@ -139,20 +119,18 @@
 
 @media screen and (max-width:376px) {
     /* -----------Nav Bar-------- */
-    .approvalpage-top-navbar{
+    .upload-drive-top-navbar{
       padding: 10px;
     }
-    .approvalpage-top-navbar .navbar{
+    .upload-drive-top-navbar .navbar{
         padding: 0px;
     }
-    .approvalpage-heading{
+    .upload-drive-heading{
       padding-top: 0px;
-      margin-left: 6rem;
+      margin-left: 3px;
       font-size: 15px;
     }
     .navbar-text{
       font-size: 10px;
     }
-    /* --------Body---------- */
-    
 }
