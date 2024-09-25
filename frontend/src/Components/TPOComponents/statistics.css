@@ -1,0 +1,83 @@
+.statistics-container{
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+}
+
+.statistics-topnav{
+    height: 15vh;
+}
+
+.statistics-body-container{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.statistics-top-navbar{
+    padding-top: 1vh;
+    height: 15vh;
+    background-color: #251070;
+}
+
+.statistics-heading{
+    color: white;
+    margin-left: 27rem;
+    font-size: 30px;
+}
+.statistics-navbar-container{
+    margin-left: 0;
+}
+.statistics-back-btn{
+    width: 15vh;
+    background-color: #572af9;
+    border: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding-top: 2px;
+}
+
+.statistics-back-icon{
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.statistics-body {
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+    background-color: #ddd;
+    overflow-y: scroll;
+  }
+  
+  .dataCard {
+    background-color: #efefef;
+    border-radius: 0.5em;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    padding: 1em;
+  }
+  
+  .revenueCard {
+    width: 85%;
+    height: 14rem;
+  }
+  
+  .customerCard {
+    width: 45%;
+    height: 14rem;
+  }
+  
+  .categoryCard {
+    width: 30%;
+    height: 14rem;
+  }
