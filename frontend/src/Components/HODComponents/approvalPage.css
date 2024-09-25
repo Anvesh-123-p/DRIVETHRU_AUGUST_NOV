@@ -24,10 +24,12 @@
 
 .approvalpage-heading{
     color: white;
-    margin-left: 25rem;
+    margin-left: 27rem;
     font-size: 30px;
 }
-
+.approvalpage-navbar-container{
+    margin-left: 0;
+}
 .approvalpage-back-btn{
     width: 15vh;
     background-color: #572af9;
@@ -47,6 +49,11 @@
 .approvalpage-table{
     height: 70vh;
     padding: 8px;
+}
+
+.approvalpage-table-head th{
+    background-color: #2E3977;
+    color: white;
 }
 
 .approvalpage-table .table{

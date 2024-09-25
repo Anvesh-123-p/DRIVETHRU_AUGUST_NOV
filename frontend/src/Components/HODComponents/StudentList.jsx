@@ -11,7 +11,7 @@ const StudentList=()=>{
             <div className="studentlist-topnav">
                 <div className="studentlist-top-navbar">
                     <Navbar>
-                        <Container>
+                        <Container className="studentlist-navbar-container">
                         <Navbar.Brand href="home"><button type="button" className="back-btn">
                                     <Link to="/HOD/Dashboard">
                                     <i className="pi pi-chevron-circle-left mr-2 back-icon"> Back</i>
@@ -43,7 +43,7 @@ const StudentList=()=>{
                 </div>
                 <div className="studentlist-table table-responsive">
                 <table class="table table-hover">
-                    <thead className="table-head">
+                    <thead class="studentlist-table-head">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
@@ -56,7 +56,7 @@ const StudentList=()=>{
                             <th scope="col">Comments</th>
                         </tr>
                     </thead>
-                    <tbody  class="table-group-divider">
+                    <tbody>
                         <tr>
                             <td>1</td>
                             <td>qwe</td>

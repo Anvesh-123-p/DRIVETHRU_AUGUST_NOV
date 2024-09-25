@@ -12,7 +12,6 @@ const StudentDetails=()=>{
             <div className="student-details-topnav">
                 <div className="student-details-top-navbar">
                     <Navbar>
-                        <Container>
                         <Navbar.Brand href="home" className="student-details-navbrand">
                                 <button type="button" className="student-details-back-btn" data-bs-placement="right" title="Back to Dashboard">
                                     <Link to="/TPO/Dashboard">
@@ -26,14 +25,13 @@ const StudentDetails=()=>{
                             <Link to="/ChangePassword"><img src={editUser} className='student-details-editUser' title="Change Password"/></Link>
                         </Navbar.Text>
                         </Navbar.Collapse>
-                        </Container>
                     </Navbar>
                 </div>
             </div>
             <div className="student-details-body-container">
                 <div className="student-details-table table-responsive">
                 <table class="table table-hover">
-                    <thead className="table-head">
+                    <thead className="student-details-table-head">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
@@ -44,7 +42,7 @@ const StudentDetails=()=>{
                             <th scope="col">Offer Letters Recieved</th>
                         </tr>
                     </thead>
-                    <tbody  class="table-group-divider">
+                    <tbody>
                         <tr>
                             <td>1</td>
                             <td>qwe</td>

@@ -12,7 +12,6 @@ const PlacementHistory=()=>{
             <div className="placement-history-topnav">
                 <div className="placement-history-top-navbar">
                     <Navbar>
-                        <Container>
                         <Navbar.Brand href="home" className="placement-history-navbrand">
                                 <button type="button" className="placement-history-back-btn" data-bs-placement="right" title="Back to Dashboard">
                                     <Link to="/TPO/Dashboard">
@@ -26,14 +25,13 @@ const PlacementHistory=()=>{
                             <Link to="/ChangePassword"><img src={editUser} className='placement-history-editUser' title="Change Password"/></Link>
                         </Navbar.Text>
                         </Navbar.Collapse>
-                        </Container>
                     </Navbar>
                 </div>
             </div>
             <div className="placement-history-body-container">
                 <div className="placement-history-table table-responsive">
                 <table class="table table-hover">
-                    <thead className="table-head">
+                    <thead className="placement-history-table-head">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Company Name</th>
@@ -42,7 +40,7 @@ const PlacementHistory=()=>{
                             <th scope="col">Selected Students</th>
                         </tr>
                     </thead>
-                    <tbody  class="table-group-divider">
+                    <tbody>
                         <tr>
                             <td>1</td>
                             <td>qwe</td>

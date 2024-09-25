@@ -18,6 +18,7 @@ import StudentDetails from './Components/TPOComponents/StudentDetails';
 import PlacementHistory from './Components/TPOComponents/PlacementHistory';
 import Statistics from './Components/TPOComponents/Statistics';
 import UploadDrive from './Components/TPOComponents/UploadDrive';
+import CompanyViewPage from './Components/TPOComponents/CompanyViewPage';
 
 const router = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ const router = createBrowserRouter([
       {
         path:"/TPO/UploadDrive",
         element:<UploadDrive/>
+      },
+      {
+        path:"/TPO/CompanyViewPage",
+        element:<CompanyViewPage/>
       }
     ]
   },

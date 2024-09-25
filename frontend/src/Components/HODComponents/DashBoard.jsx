@@ -10,37 +10,35 @@ const Dashboard=()=>{
         <div className="hod-topnav">
             <div className="hod-top-navbar">
                 <Navbar>
-                    <Container>
-                        <Navbar.Brand href="home"><b className='heading'>HOD DASHBOARD</b></Navbar.Brand>
+                        <Navbar.Brand href="home"><b className='hod-heading'>HOD DASHBOARD</b></Navbar.Brand>
                         <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
+                        <Navbar.Text style={{marginRight:"10px"}}>
                             Signed in as: <Link to="/ChangePassword"> Mark Otto</Link>
                         </Navbar.Text>
                         </Navbar.Collapse>
-                    </Container>
                 </Navbar>
             </div>
         </div>
         <div className="hod-dashboard">
             <div className="hod-sidebar-container">
                 <div className="sidebar">
-                    <div className={`sidebar-item`}>
+                    <div className={`hod-sidebar-item active`}>
                         <Link to="/HOD/Dashboard" className="sidebar-link">
                         <i className="pi pi-home mr-2 icon"></i> Home
                         </Link>
                     </div>
-                    <div className={`sidebar-item`}>
+                    <div className={`hod-sidebar-item`}>
                         <Link to="/HOD/StudentList" className="sidebar-link">
                         <i className="pi pi-eye mr-2 icon"></i> Student List
                         </Link>
                     </div>
-                    <div className={`sidebar-item`}>
+                    <div className={`hod-sidebar-item`}>
                         <Link to="/HOD/ApprovalPage" className="sidebar-link">
                         <i className="pi pi-pencil mr-2 icon"></i>Students Approval page 
                         </Link>
                     </div>
-                    <div className={`sidebar-item-logout`}>
+                    <div className={`hod-sidebar-item-logout`}>
                         <Link to="/Login" className="sidebar-link">
                         <i className="pi pi-sign-out mr-2 icon"></i> Log Out
                         </Link>

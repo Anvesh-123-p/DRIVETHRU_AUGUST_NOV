@@ -4,45 +4,45 @@ import { Link } from 'react-router-dom';
 import 'primeicons/primeicons.css';
 import "../TPOComponents/tpodashboard.css"
 import editUser from "../../Assests/EditUser.png"
+import { useState } from 'react';
 
 const TPODashboard=()=>{
+    const [companyDetails,setCompanyDetails] = useState([]);
     return(
         <div className="tpo-home">
         <div className="tpo-topnav">
             <div className="tpo-top-navbar">
                 <Navbar>
-                    <Container>
                         <Navbar.Brand href="home"><b className='heading'>TPO DASHBOARD</b></Navbar.Brand>
                         <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
-                        <Navbar.Text>
+                        <Navbar.Text className='tpo-navbar-text'>
                         <Link to="/TPO/UploadDrive"><button type="button" class="btn btn-sm btn-upload-drive">Upload Drive</button></Link>
                         <Link to="/ChangePassword"><img src={editUser} className='tpo-editUser' /></Link>
                         </Navbar.Text>
                         </Navbar.Collapse>
-                    </Container>
                 </Navbar>
             </div>
         </div>
         <div className="tpo-dashboard">
             <div className="tpo-sidebar-container">
                 <div className="sidebar">
-                    <div className={`sidebar-item`}>
+                    <div className={`tpo-sidebar-item active`}>
                         <Link to="/TPO/Dashboard" className="sidebar-link">
                         <i className="pi pi-home mr-2 icon"></i> Home
                         </Link>
                     </div>
-                    <div className={`sidebar-item`}>
+                    <div className={`tpo-sidebar-item`}>
                         <Link to="/TPO/StudentDetails" className="sidebar-link">
                         <i className="pi pi-eye mr-2 icon"></i> Student Details
                         </Link>
                     </div>
-                    <div className={`sidebar-item`}>
+                    <div className={`tpo-sidebar-item`}>
                         <Link to="/TPO/PlacementHistory" className="sidebar-link">
                         <i className="pi pi-history mr-2 icon"></i>Placement History
                         </Link>
                     </div>
-                    <div className={`sidebar-item`}>
+                    <div className={`tpo-sidebar-item`}>
                         <Link to="/TPO/Statistics" className="sidebar-link">
                         <i className="pi pi-chart-line mr-2 icon"></i>Statistics
                         </Link>
@@ -61,12 +61,30 @@ const TPODashboard=()=>{
                 </div>
                 <div className="cards-class">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
+                        {/* {companyDetails.map((company)=>{
+                            <div className="card-component">
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{company.name}</h5>
+                                        <p class="card-text">{company.description}<a href="CompanyViewPage" class="stretched-link" style={{float:"right"}}>More</a></p>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div className="card-foot-text">
+                                            <p className="card-text">Status:{company.status}</p>
+                                            <p className="card-text">CTC:{company.ctc}</p>  
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        })} */}
                         <div className="card-component">
                             <div class="col">
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.<a href="/TPO/CompanyViewPage" class="stretched-link" style={{float:"right"}}>More</a></p>
                                     </div>
                                     <div class="card-footer">
                                         <div className="card-foot-text">
@@ -82,7 +100,7 @@ const TPODashboard=()=>{
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer longer.<a href="/TPO/CompanyViewPage" class="stretched-link" style={{float:"right"}}>More</a></p>
                                     </div>
                                     <div class="card-footer">
                                         <div className="card-foot-text">
@@ -98,7 +116,7 @@ const TPODashboard=()=>{
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer longer longer.<a href="/TPO/CompanyViewPage" class="stretched-link" style={{float:"right"}}>More</a></p>
                                     </div>
                                     <div class="card-footer">
                                         <div className="card-foot-text">
@@ -114,7 +132,7 @@ const TPODashboard=()=>{
                                 <div class="card h-100">
                                     <div class="card-body">
                                         <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer longer longer long longer .<a href="/TPO/CompanyViewPage" class="stretched-link" style={{float:"right"}}>More</a></p>
                                     </div>
                                     <div class="card-footer">
                                         <div className="card-foot-text">

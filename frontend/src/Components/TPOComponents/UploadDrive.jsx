@@ -11,7 +11,6 @@ const UploadDrive=()=>{
             <div className="upload-drive-topnav">
                 <div className="upload-drive-top-navbar">
                     <Navbar>
-                        <Container>
                         <Navbar.Brand href="home" className="upload-drive-navbrand">
                                 <button type="button" className="upload-drive-back-btn" data-bs-placement="right" title="Back to Dashboard">
                                     <Link to="/TPO/Dashboard">
@@ -25,25 +24,24 @@ const UploadDrive=()=>{
                             <Link to="/ChangePassword"><img src={editUser} className='upload-drive-editUser' title="Change Password"/></Link>
                         </Navbar.Text>
                         </Navbar.Collapse>
-                        </Container>
                     </Navbar>
                 </div>
             </div>
             <div className="upload-drive-body-container">
-                <div className="upload-drive-container">
-                    <div className="row">
-                        <div className="col-md-6 form-group">
-                            <label htmlFor="companyName">Company Name</label>
+                <div className="upload-drive-form">
+                    <div className="row justify-content-md-center">
+                        <div className="col-md-4 col-sm-3 form-group">
+                            <label htmlFor="companyName" className="upload-drive-formlabel">Company Name</label>
                             <input type="text" className="form-control" placeholder="Enter Company Name"/>
                         </div>
-                        <div className="col-md-6 form-group">
-                            <label htmlFor="eligibilityPercentage">Eligibility Percentage</label>
+                        <div className="col-md-4 col-sm-3 form-group">
+                            <label htmlFor="eligibilityPercentage" className="upload-drive-formlabel">Eligibility Percentage</label>
                             <input type="text" className="form-control" placeholder="Enter Eligibility %"/>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-md-6 form-group">
-                            <label htmlFor="primarySkillSet">Primary Skill Set</label>
+                    <div className="row justify-content-md-center">
+                        <div className="col-md-4 col-sm-4 form-group">
+                            <label htmlFor="primarySkillSet" className="upload-drive-formlabel">Primary Skill Set</label>
                             <select id="primarySkillSet" onChange={(e)=>{}} className="form-select form-control border border-dark">
                             <option defaultValue>Select Primary Skill</option>
                             <option value="CSE">JAVA</option>
@@ -53,8 +51,8 @@ const UploadDrive=()=>{
                             <option value="EEE">Typescript</option>
                             </select>
                         </div>
-                        <div className="col-md-6">
-                            <label htmlFor="secondarySkillSet" className="form-label ">Secondary Skill Set</label>
+                        <div className="col-md-4 col-sm-4 form-group">
+                            <label htmlFor="secondarySkillSet" className="upload-drive-formlabel">Secondary Skill Set</label>
                             <select id="secondarySkillSet" onChange={(e)=>{}} className="form-select form-control border border-dark">
                             <option defaultValue>Select secondary SKill</option>
                             <option value="CSE">C++</option>
@@ -65,13 +63,13 @@ const UploadDrive=()=>{
                             </select>
                         </div>
                     </div>
-                    <div className="row">
-                        <div className="col-md-6 col-sm-6 form-group">
-                            <label htmlFor="resume" id="labels" className="form-label">Resume</label>
+                    <div className="row justify-content-md-center">
+                        <div className="col-md-4 col-sm-4 form-group">
+                            <label htmlFor="resume" id="labels" className="upload-drive-formlabel">Resume</label>
                             <input type="file" className="form-control border border-dark"  onChange={(e)=>{}} placeholder='Resume' />
                         </div>
-                        <div className="col-md-6">
-                        <label htmlFor="eligibilityDept" className="form-label ">Eligibility Department</label>
+                        <div className="col-md-4 col-sm-4 form-group">
+                        <label htmlFor="eligibilityDept" className="upload-drive-formlabel">Eligibility Department</label>
                             <select id="eligibilityDept" onChange={(e)=>{}} className="form-select form-control border border-dark">
                                 <option defaultValue>Select Eligibility Departmet</option>
                                 <option value="CSE">CSE</option>
@@ -82,7 +80,30 @@ const UploadDrive=()=>{
                             </select>
                         </div>
                     </div>
-
+                    <div className="row justify-content-md-center">
+                        <div className="col-md-4 col-sm-4 form-group">
+                            <label htmlFor="ctc" className="upload-drive-formlabel">CTC</label>
+                            <input type="text" className="form-control" placeholder="Enter CTC"/>
+                        </div>
+                        
+                        <div className="col-md-4 col-sm-4 form-group">
+                            <label htmlFor="noofrounds" className="upload-drive-formlabel">No of Rounds</label>
+                            <input type="text" className="form-control" placeholder="Enter Rounds"/>
+                        </div>
+                    </div>
+                    <div className="row justify-content-md-center"> 
+                        <div className="col-md-4 col-sm-4 form-group">
+                            <label htmlFor="eligibilityDept" className="upload-drive-formlabel">Eligibility Department</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+                        </div>
+                        <div className="col-md-4 col-sm-4 form-group">
+                            <label htmlFor="startDate" className="upload-drive-formlabel">Start Date</label>
+                            <input type="date" className="form-control" placeholder="Enter Start Date"/>
+                        </div>
+                    </div>
+                    <div className="col-md-10">
+                        <button type="button" class="btn btn-success upload-drive-submit-btn">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>

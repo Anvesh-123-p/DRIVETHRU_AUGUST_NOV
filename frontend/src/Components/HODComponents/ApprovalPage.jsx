@@ -12,7 +12,7 @@ const ApprovalPage=()=>{
             <div className="approvalpage-topnav">
                 <div className="approvalpage-top-navbar">
                     <Navbar>
-                        <Container>
+                        <Container className="approvalpage-navbar-container">
                         <Navbar.Brand href="home">
                             <button type="button" className="approvalpage-back-btn">
                                 <Link to="/HOD/Dashboard">
@@ -41,7 +41,7 @@ const ApprovalPage=()=>{
                     <Tab eventKey="PendingStudentList" title="Pending Student List">
                     <div className="table-responsive">
                         <table class="table table-hover">
-                        <thead>
+                        <thead className="approvalpage-table-head">
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Department</th>
@@ -51,7 +51,7 @@ const ApprovalPage=()=>{
                                 <th scope="col">Comments</th>
                             </tr>
                         </thead>
-                        <tbody  class="table-group-divider">
+                        <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>qwe</td>
@@ -113,7 +113,7 @@ const ApprovalPage=()=>{
                     <Tab eventKey="ApprovedStudentList" title="Approved Student List">
                     <div className="table-responsive">
                         <table class="table table-hover">
-                        <thead>
+                        <thead className="approvalpage-table-head">
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Roll.No</th>
@@ -122,7 +122,7 @@ const ApprovalPage=()=>{
                                 <th scope="col">Comments</th>
                             </tr>
                         </thead>
-                        <tbody  class="table-group-divider">
+                        <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>qwe</td>
@@ -160,7 +160,7 @@ const ApprovalPage=()=>{
                     <Tab eventKey="RejectedStudentList" title="Rejected Student List">
                     <div className="table-responsive">
                         <table class="table table-hover">
-                        <thead>
+                        <thead className="approvalpage-table-head">
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Roll.No</th>
@@ -169,7 +169,7 @@ const ApprovalPage=()=>{
                                 <th scope="col">Comments</th>
                             </tr>
                         </thead>
-                        <tbody  class="table-group-divider">
+                        <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>qwe</td>

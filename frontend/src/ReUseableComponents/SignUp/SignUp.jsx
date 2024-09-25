@@ -46,30 +46,30 @@ const SignUp=()=>{
                 </div>
               </div>
 
-              <div className="">
+              <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="email"   className="form-label" >Email</label>
-                <input type="email" className="form-control border border-dark" onChange={(e)=>{}} placeholder="Email" id="exampleInput"  aria-describedby="emailHelp"/>
+                <input type="email" className="form-control border border-dark" onChange={(e)=>{}} placeholder="Email" aria-describedby="emailHelp"/>
               </div>
               
-              <div className="">
+              <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="mobileNumber"   className="form-label" >Mobile Number</label>
-                <input type="text" className="form-control border border-dark" onChange={(e)=>{}} placeholder='Mobile Number' id="exampleInput"  aria-describedby="emailHelp"/>
+                <input type="text" className="form-control border border-dark" onChange={(e)=>{}} placeholder='Mobile Number' aria-describedby="emailHelp"/>
               </div>
-              <div className="mb-0">
+              <div className="mb-0 col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="password"   className="form-label" >Password</label>
-                <input type="password" className="form-control border border-dark"  onChange={(e)=>{}} placeholder='Password' id="exampleInput"  aria-describedby="emailHelp"/>
+                <input type="password" className="form-control border border-dark"  onChange={(e)=>{}} placeholder='Password' aria-describedby="emailHelp"/>
               </div>
-              <div className="">
+              <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="percentage" id="labels" className="form-label">Percentage</label>
-                <input type="text" className="form-control border border-dark" onChange={(e)=>{}} placeholder="Percentage" id="exampleInput" />
+                <input type="text" className="form-control border border-dark" onChange={(e)=>{}} placeholder="Percentage" />
               </div>
-              <div className="">
+              <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="resume" id="labels" className="form-label">Resume</label>
-                <input type="text" className="form-control border border-dark"  onChange={(e)=>{}} placeholder='Resume' id="exampleInput" />
+                <input type="file" className="form-control border border-dark"  onChange={(e)=>{}} placeholder='Resume'/>
               </div>
-              <div className="">
+              <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="rollNumber" id="labels" className="form-label">Roll Number</label>
-                <input type="text" className="form-control border border-dark" onChange={(e)=>{}} placeholder='Roll Number' id="exampleInput" />
+                <input type="text" className="form-control border border-dark" onChange={(e)=>{}} placeholder='Roll Number'  />
               </div>
               <button type="submit"  className={"btn btn-dark buttons"}>Submit</button>
            
