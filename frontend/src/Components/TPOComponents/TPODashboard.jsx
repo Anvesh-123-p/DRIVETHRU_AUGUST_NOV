@@ -11,6 +11,8 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const TPODashboard=()=>{
     const [companyDetails,setCompanyDetails] = useState(companyDetailsJson);
+    const [filteredCompanyDetails,setFilteredCompanyDetails] = useState(companyDetailsJson);
+    const [searchString, setSearchString]=useState("");
     const navigate = useNavigate();
 
     const renderTooltip = (props) => (
@@ -27,6 +29,22 @@ const TPODashboard=()=>{
 
     const handleOpenCompanyViewPage=(company)=>{
         navigate(`/TPO/CompanyViewPage`,{state: {companyData: company}});
+    }
+
+    const SearchInTPODashBoard=(searchedValue)=>{
+        setSearchString(searchedValue)
+        const filteredRows = companyDetails.filter((row) => {
+            return row.name.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.status.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.CTC.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.description.toString().toLowerCase().includes(searchedValue.toString().toLowerCase());
+        });
+        if (searchedValue.length < 1) {
+            setFilteredCompanyDetails(companyDetails)
+        }
+        else {
+            setFilteredCompanyDetails(filteredRows)
+        }
     }
 
     return(
@@ -77,12 +95,12 @@ const TPODashboard=()=>{
             </div>
             <div className='tpo-summary-container'>
                 <div className="tpo-search-bar">
-                    <input type="text" id="search" className="tpo-search-input" />
-                    <button type="button" className="btn btn-sm tpo-search-btn " onClick={()=>{}}><span className="pi pi-search"></span> Search</button>
+                    <input type="text" id="search" className="tpo-search-input" onChange={(e)=>SearchInTPODashBoard(e.target.value)}/>
+                    <button type="button" className="btn btn-sm tpo-search-btn " onClick={()=>{SearchInTPODashBoard(searchString)}}><span className="pi pi-search"></span> Search</button>
                 </div>
                 <div className="cards-class">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
-                        {companyDetails.map((company)=>
+                        {filteredCompanyDetails.map((company)=>
                         <OverlayTrigger
                         placement="top"
                         delay={{ show: 250, hide: 400 }}

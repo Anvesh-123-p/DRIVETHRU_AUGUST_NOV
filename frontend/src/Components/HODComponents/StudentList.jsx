@@ -3,9 +3,41 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import "../HODComponents/studentList.css";
+import studentData from "../data/StudentsData.json"
 
 const StudentList=()=>{
-    const [studentlist, setStudentList]=useState([]);
+    const [studentlist, setStudentList]=useState(studentData);
+    const [filterStudentlist, setFilterStudentlist] = useState(studentData)
+
+    const onSearchByDept=(e)=>{
+        const value=e.target.value;
+        console.log(value);
+        
+        const filteredRows = studentlist.filter((row) => {
+            return row.department.toString().toLowerCase().includes(value.toString().toLowerCase());
+        });
+        if (value.length < 1) {
+            setFilterStudentlist(studentlist)
+        }
+        else {
+            setFilterStudentlist(filteredRows)
+        }
+    }
+
+    const onSearchByAny=(searchedVal)=>{
+        const filteredRows = studentlist.filter((row) => {
+            return row.name.toString().toLowerCase().includes(searchedVal.toString().toLowerCase()) ||
+            row.percentage.toString().toLowerCase().includes(searchedVal.toString().toLowerCase()) ||
+            row.companiesSelected.toString().toLowerCase().includes(searchedVal.toString().toLowerCase());
+        });
+        if (searchedVal.length < 1) {
+            setFilterStudentlist(studentlist)
+        }
+        else {
+            setFilterStudentlist(filteredRows)
+        }
+    }
+
     return(
         <div className="studentlist-container">
             <div className="studentlist-topnav">
@@ -31,14 +63,18 @@ const StudentList=()=>{
                 <div className="studentlist-search-bar-nav">
                     <div class="form-group">
                         <label className="form-label">Department</label>
-                        <select id="inputState" onChange={(e)=>{}} className="studentlist-search-input">
-                            <option defaultValue>Select Department</option>
-                            <option vlaue="CSE">CSE</option>
+                        <select id="inputState" onChange={(e)=>{onSearchByDept(e)}} className="studentlist-search-input">
+                            <option defaultValue value="">Select Department</option>
+                            <option value="CSE">Computer Science (CSE)</option>
+                            <option value="EEE">Electrical (EEE)</option>
+                            <option value="MECH">Mechanical (Mech)</option>
+                            <option value="CIVIL">Civil</option>
+                            <option value="ECE">Electonics (ECE)</option>
                         </select>
                     </div>
                     <div className="form-group">
                         <label className="form-label" >Search By Any</label>
-                        <input type="text" className="studentlist-search-input" id="search" />
+                        <input type="text" className="studentlist-search-input" id="search" onChange={(e)=>onSearchByAny(e.target.value)}/>
                     </div>    
                 </div>
                 <div className="studentlist-table table-responsive">
@@ -57,46 +93,19 @@ const StudentList=()=>{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                        </tr>
-                        {/* {studentlist.map((student)=>{
+                        {filterStudentlist.map((student, index)=>
                             <tr>
-                                <th scope="row">{}</th>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
+                                <th scope="row">{index+1}</th>
+                                <td>{student.name}</td>
+                                <td>{student.email}</td>
+                                <td>{student.phoneNumber}</td>
+                                <td>{student.department}</td>
+                                <td>{student.percentage}</td>
+                                <td>{student.companiesSelected}</td>
+                                <td>{student.resume}</td>
+                                <td>{student.hodComments}</td>
                             </tr>
-                        })} */}
+                        )}
                     </tbody>
                     </table>
                 </div>

@@ -34,16 +34,19 @@
 }
 
 .upload-drive-back-btn{
-    background-color: #251070;
+    width: 15vh;
+    background-color: #572af9;
     border: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     border-radius: 10px;
+    padding-top: 7px;
 }
 
 .upload-drive-back-icon{
     font-weight: bold;
     color: #ffffff;
-    font-size: xx-large;
-    margin-top: 5px;
 }
 
 .upload-drive-editUser{
@@ -159,7 +162,7 @@
         padding-top: 0;
         margin-top: 0.5rem;
         margin-left: 3rem;
-      font-size: 20px;
+        font-size: 20px;
     }
     .navbar-text{
       font-size: 10px;

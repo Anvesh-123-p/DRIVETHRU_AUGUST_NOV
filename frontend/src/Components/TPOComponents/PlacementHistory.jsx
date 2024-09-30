@@ -4,9 +4,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import "../TPOComponents/placementHistory.css"
 import editUser from "../../Assests/EditUser.png"
+import companyDetails from "../data/companyDetails.json"
 
 const PlacementHistory=()=>{
-    const [placementStudentDetailslist, setPlacementStudentDetailsList]=useState([]);
+    const [placementStudentDetailslist, setPlacementStudentDetailsList]=useState(companyDetails);
+
     return(
         <div className="placement-history-container">
             <div className="placement-history-topnav">
@@ -41,36 +43,15 @@ const PlacementHistory=()=>{
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                        </tr>
-                        {/* {placementStudentDetailslist.map((student)=>{
+                        {placementStudentDetailslist.map((company, index)=>
                             <tr>
-                                <th scope="row">{}</th>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
+                                <th scope="row">{index+1}</th>
+                                <td>{company.name}</td>
+                                <td>{company.CTC}</td>
+                                <td>{company.status}</td>
                                 <td>{}</td>
                             </tr>
-                        })} */}
+                        )}
                     </tbody>
                     </table>
                 </div>

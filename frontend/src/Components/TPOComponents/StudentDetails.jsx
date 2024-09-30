@@ -8,7 +8,7 @@ import studentData from "../data/StudentsData.json"
 const PDF_FILE_URL = "http://localhost:3000/YaminiChintaProfile.pdf"
 
 const StudentDetails=()=>{
-    const [studentDetailslist, setStudentDetailsList]=useState([]);
+    const [studentDetailslist, setStudentDetailsList]=useState(studentData);
 
     const onButtonClick=(url)=>{
         const fileName=url.split("/").pop();
@@ -50,51 +50,22 @@ const StudentDetails=()=>{
                             <th scope="col">Department</th>
                             <th scope="col">Percentage</th>
                             <th scope="col">Offer Letters Recieved</th>
-                            <th scope="col">Resume</th>
                             <th scope="col">Company</th>
+                            <th scope="col">Resume</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td><a class="stretched-link" className="student-details-download-pdf" onClick={()=>onButtonClick(PDF_FILE_URL)}>Download PDF</a></td>
-                            <td>qwe</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                            <td>qwe</td>
-                        </tr>
-                        {/* {studentDetailsList.map((student)=>{
+                        {studentDetailslist.map((student, index)=>
                             <tr>
-                                <th scope="row">{}</th>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
-                                <td>{}</td>
+                                <th scope="row">{index+1}</th>
+                                <td>{student.name}</td>
+                                <td>{student.department}</td>
+                                <td>{student.percentage}</td>
+                                <td>{student.offerLettersReceived}</td>
+                                <td>{student.company}</td>
+                                <td><a class="stretched-link" className="student-details-download-pdf" onClick={()=>onButtonClick(PDF_FILE_URL)}>Download PDF</a></td>
                             </tr>
-                        })} */}
+                        )}
                     </tbody>
                     </table>
                 </div>

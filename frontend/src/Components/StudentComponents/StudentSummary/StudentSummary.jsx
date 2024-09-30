@@ -8,6 +8,8 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const StudentSummary=()=>{
     const [companyDetails,setCompanyDetails] = useState(companyDetailsJson);
+    const [filteredCompanyDetails,setFilteredCompanyDetails] = useState(companyDetailsJson);
+    const [searchString, setSearchString]=useState("");
     const [companyData, setCompanyData] = useState([])
     const [show, setShow] = useState(false);
     const [companyDetailsShow, setCompanyDetailsShow] = useState(false);
@@ -33,15 +35,31 @@ const StudentSummary=()=>{
         const truncatedText = text.length > maxLength? text.slice(0, maxLength) + '. . .' : text;
         return truncatedText;
     } 
+
+    const SearchInStudentDashBoard=(searchedValue)=>{
+        setSearchString(searchedValue)
+        const filteredRows = companyDetails.filter((row) => {
+            return row.name.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.status.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.CTC.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.description.toString().toLowerCase().includes(searchedValue.toString().toLowerCase());
+        });
+        if (searchedValue.length < 1) {
+            setFilteredCompanyDetails(companyDetails)
+        }
+        else {
+            setFilteredCompanyDetails(filteredRows)
+        }
+    }
     return(
         <div>
             <div className="student-search-bar">
-                <input type="text" id="search" className="student-search-input" />
-                <button type="button" className="student-search-btn" onClick={()=>{}}><span className="pi pi-search"></span> Search</button>
+                <input type="text" id="search" className="student-search-input" onChange={(e)=>SearchInStudentDashBoard(e.target.value)}/>
+                <button type="button" className="student-search-btn" onClick={()=>{SearchInStudentDashBoard(searchString)}}><span className="pi pi-search"></span> Search</button>
             </div>
             <div className="cards-class">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
-                {companyDetails.map((company)=>
+                {filteredCompanyDetails.map((company)=>
                 <div className="card-component">
                     <div class="col">
                         <div class="card h-100">   

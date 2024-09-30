@@ -12,6 +12,8 @@ import Tooltip from 'react-bootstrap/Tooltip';
 
 const Dashboard=()=>{
     const [companyDetails,setCompanyDetails] = useState(companyDetailsJson);
+    const [filteredCompanyDetails,setFilteredCompanyDetails] = useState(companyDetailsJson);
+    const [searchString, setSearchString]=useState("");
     const [companyData, setCompanyData] = useState([])
     const [companyDetailsShow, setCompanyDetailsShow] = useState(false);
 
@@ -32,6 +34,22 @@ const Dashboard=()=>{
     }
     
     const handleCompanyClose = () => setCompanyDetailsShow(false);
+
+    const SearchInHODDashBoard=(searchedValue)=>{
+        setSearchString(searchedValue)
+        const filteredRows = companyDetails.filter((row) => {
+            return row.name.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.status.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.CTC.toString().toLowerCase().includes(searchedValue.toString().toLowerCase()) ||
+            row.description.toString().toLowerCase().includes(searchedValue.toString().toLowerCase());
+        });
+        if (searchedValue.length < 1) {
+            setFilteredCompanyDetails(companyDetails)
+        }
+        else {
+            setFilteredCompanyDetails(filteredRows)
+        }
+    }
 
     return(
     <div className="hod-home">
@@ -75,12 +93,12 @@ const Dashboard=()=>{
             </div>
             <div className='hod-summary-container'>
                 <div className="hod-search-bar">
-                    <input type="text" id="search" className="hod-search-input" />
-                    <button type="button" className="hod-search-btn btn btn-sm" onClick={()=>{}}><span className="pi pi-search"></span> Search</button>
+                    <input type="text" className="hod-search-input" onChange={(e)=>{SearchInHODDashBoard(e.target.value)}} placeholder='Search By Any'/>
+                    <button type="button" className="hod-search-btn btn btn-sm" onClick={()=>{SearchInHODDashBoard(searchString)}}><span className="pi pi-search"></span> Search</button>
                 </div>
                 <div className="cards-class">
                     <div class="row row-cols-1 row-cols-md-3 g-4">
-                    {companyDetails.map((company)=>
+                    {filteredCompanyDetails.map((company)=>
                         <OverlayTrigger
                         placement="top"
                         delay={{ show: 250, hide: 400 }}

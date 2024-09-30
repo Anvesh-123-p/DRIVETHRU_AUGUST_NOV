@@ -2,31 +2,31 @@
     {
         "name":"TCS",
         "CTC":3.5,
-        "status":"Immediate",
+        "status":"Not Started",
         "description":"Software Enginner : Software development: Create, modify, and develop computer applications and specialized programs. Software development: Create, modify, and develop computer applications and specialized programs"
     },
     {
         "name":"CTS",
         "CTC":4.5, 
-        "status":"Immediate",
+        "status":"In Progress",
         "description":"UIX Enginner: User needs: Analyze user needs and develop software solutions"
     },
     {
         "name":"Accenture",
         "CTC":4.5,
-        "status":"Immediate",
+        "status":"Not Started",
         "description":"Data Analyst: Database design: Design and analyze databases for application areas"
     },
     {
         "name":"Infossys",
         "CTC":5.0,
-        "status":"Immediate",
+        "status":"Completed",
         "description":"System Enginner: System maintenance: Monitor, identify, and correct software defects to maintain systems"
     },
     {
         "name":"IBM",
         "CTC":4.7,
-        "status":"Immediate",
+        "status":"Cancelled",
         "description":"Technical Enginner: Technical specifications: Create technical specifications and test plans"
     }
 ]
