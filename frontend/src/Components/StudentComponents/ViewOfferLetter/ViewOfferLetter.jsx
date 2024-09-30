@@ -5,7 +5,7 @@ const ViewOfferLetter=()=>{
     const [data, setdata]=useState([]);
     return(
         <table class="table view-offer-table table-hover table-responsivetable-responsive">
-            <thead class="table-dark">
+            <thead class="viewOfferLetter-table-head">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Company Name</th>

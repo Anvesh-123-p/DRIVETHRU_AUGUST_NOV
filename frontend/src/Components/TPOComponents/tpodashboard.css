@@ -87,7 +87,7 @@
 
   
 .btn-upload-drive{
-  background-color: #251070;
+  background-color: #2E3977;
   color: white;
   margin-right: 2px;
 }
@@ -124,7 +124,7 @@
     border: 1px solid black;
     border-radius: 6px;
     color: white;
-    background-color: #251070;
+    background-color: #2E3977;
 }
 .tpo-search-btn:hover{
   background-color: #3718a7;
@@ -133,6 +133,9 @@
 /* ----------Card Component------------- */
 .cards-class{
     padding: 30px
+}
+.tpo-card-component{
+  cursor: pointer;
 }
 .card-footer{
     display: flex;

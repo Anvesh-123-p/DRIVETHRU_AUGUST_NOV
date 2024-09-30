@@ -70,7 +70,7 @@ const EditProfile=()=>{
                 </div>
                 <div className="p-4 col-md-6 col-sm-6 edit-profile-buttons">
                     <button type="submit"  className="btn btn-secondary buttons">Cancel</button>
-                    <button type="submit"  className="btn btn-dark buttons">Submit</button>
+                    <button type="submit"  className="btn editprofile-submit-btn buttons ">Submit</button>
                 </div>
               </div>
            

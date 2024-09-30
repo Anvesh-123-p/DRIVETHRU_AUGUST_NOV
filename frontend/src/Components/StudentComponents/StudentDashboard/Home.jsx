@@ -7,14 +7,14 @@ import { Outlet } from "react-router-dom";
 const Home=()=>{
     return(
         <div className="home">
-            <div className="top-nav">
+            <div className="student-top-nav">
                 <TopNavbar/>
             </div>
-            <div className="dashboard">
-                <div className="sidebar-container">
+            <div className="student-dashboard">
+                <div className="student-sidebar-container">
                     <SideBar/>
                 </div>
-                <div className="summary-container">
+                <div className="student-summary-container">
                     {/* <StudentSummary/> */}
                     <Outlet/>
                 </div>

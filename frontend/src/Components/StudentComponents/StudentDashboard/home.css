@@ -3,22 +3,22 @@
     height: 100vh;
     width: 100%;
 }
-.top-nav{
+.student-top-nav{
     height: 15vh;
 }
-.dashboard{
+.student-dashboard{
     display: flex;
     height: 85vh;
     overflow-y: hidden;
     overflow-x: hidden;
 }
-.sidebar-container{
+.student-sidebar-container{
     height: 100%;
     width: 20%;
     background-color:#251070;
     border-right: 1px solid gray;
 }
-.summary-container{
+.student-summary-container{
     background-color: rgb(232, 233, 235);
     height: 100%;
     width: 80%;
@@ -27,10 +27,10 @@
 }
 
 @media screen and (max-width:1024px) {
-    .dashboard {
+    .student-dashboard {
         height: 90vh;
     }
-    .top-nav{
+    .student-top-nav{
         height: 10vh;
     }
 }

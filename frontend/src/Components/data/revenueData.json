@@ -1,61 +1,61 @@
 [
     {
-      "label": "Jan",
+      "label": "2021 Feb",
       "revenue": 64854,
       "cost": 32652
     },
     {
-      "label": "Feb",
+      "label": "2021 Mar",
       "revenue": 54628,
       "cost": 42393
     },
     {
-      "label": "Mar",
+      "label": "2021 Apr",
       "revenue": 117238,
       "cost": 50262
     },
     {
-      "label": "Apr",
+      "label": "2022 Feb",
       "revenue": 82830,
       "cost": 64731
     },
     {
-      "label": "May",
+      "label": "2022 Mar",
       "revenue": 91208,
       "cost": 41893
     },
     {
-      "label": "Jun",
+      "label": "2022 APr",
       "revenue": 103609,
       "cost": 83809
     },
     {
-      "label": "Jul",
+      "label": "2023 Feb",
       "revenue": 90974,
       "cost": 44772
     },
     {
-      "label": "Aug",
+      "label": "2023 Mar",
       "revenue": 82919,
       "cost": 37590
     },
     {
-      "label": "Sep",
+      "label": "2023 Apr",
       "revenue": 62407,
       "cost": 43349
     },
     {
-      "label": "Oct",
+      "label": "2024 Feb",
       "revenue": 82528,
       "cost": 45324
     },
     {
-      "label": "Nov",
+      "label": "2024 Mar",
       "revenue": 56979,
       "cost": 47978
     },
     {
-      "label": "Dec",
+      "label": "2024 Apr",
       "revenue": 87436,
       "cost": 39175
     }

@@ -101,7 +101,7 @@
     border: 1px solid black;
     border-radius: 6px;
     color: white;
-    background-color: #251070;
+    background-color: #2E3977;
 }
 .hod-search-btn:hover{
   background-color: #3718a7;
@@ -110,6 +110,9 @@
 /* ----------Card Component------------- */
 .cards-class{
     padding: 30px
+}
+.hod-card-component{
+  cursor: pointer;
 }
 .card-footer{
     display: flex;

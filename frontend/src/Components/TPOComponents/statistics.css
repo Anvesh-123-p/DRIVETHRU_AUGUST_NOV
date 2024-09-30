@@ -12,8 +12,9 @@
     display: flex;
     flex-direction: column;
     height: 85vh;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
+    background-color: #ddd;
 }
 
 .statistics-top-navbar{
@@ -46,6 +47,24 @@
     color: #ffffff;
 }
 
+.statistics-dropdown-export{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: #ddd;
+    justify-content: space-between;
+    padding-right: 20px;
+}
+
+.statistics-dropdown{
+    width: 80vh;
+}
+.statistics-export-btn{
+    float: right;
+    background-color: #2E3977;
+    color: white;
+}
+
 .statistics-body {
     height: 85vh;
     width: 100%;
@@ -68,16 +87,23 @@
   }
   
   .revenueCard {
-    width: 85%;
+    margin-top: -100px;
+    width: 83%;
     height: 14rem;
   }
-  
+
+  .revenueCard-onselected{
+    display: none;
+  }
+
   .customerCard {
-    width: 45%;
-    height: 14rem;
+    width: 40%;
+    height: 20rem;
+    margin-bottom: 100px;
   }
   
   .categoryCard {
-    width: 30%;
-    height: 14rem;
+    width: 40%;
+    height: 20rem;
+    margin-bottom: 100px;
   }

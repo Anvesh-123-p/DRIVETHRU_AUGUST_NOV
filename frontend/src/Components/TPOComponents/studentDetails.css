@@ -33,16 +33,19 @@
 }
 
 .student-details-back-btn{
-    background-color: #251070;
+    width: 15vh;
+    background-color: #572af9;
     border: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     border-radius: 10px;
+    padding-top: 7px;
 }
 
 .student-details-back-icon{
     font-weight: bold;
     color: #ffffff;
-    font-size: xx-large;
-    margin-top: 5px;
 }
 
 .student-details-editUser{
@@ -51,7 +54,7 @@
     border: black solid 1px;
     border-radius: 50%;
     float: right;
-    margin-right: 10px;
+    margin-right: 12px;
 }
 
 .student-details-table-head th{
@@ -63,7 +66,9 @@
     height: 70vh;
     padding: 10px;
 }
-
+.student-details-download-pdf:hover{
+    cursor: pointer;
+}
 @media screen and (max-width:1024px) {
     .student-details-body-container{
         height: 90vh;

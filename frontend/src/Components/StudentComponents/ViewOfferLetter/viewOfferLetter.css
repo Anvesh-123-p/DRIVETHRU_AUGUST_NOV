@@ -1,3 +1,8 @@
 .view-offer-table{
     margin: 0;
 }
+
+.viewOfferLetter-table-head th{
+    background-color: #2E3977;
+    color: white;
+}

@@ -1,0 +1,16 @@
+[
+    {
+        "name":"Sanvi",
+        "rollNo":"31001",
+        "department":"CSE",
+        "phoneNumber":"9090989897",
+        "email":"sanvi@gmail.com",
+        "percentage":"93.5%",
+        "companiesSelected":2,
+        "hodComments":"Good",
+        "approvalType":"HOD",
+        "company":"",
+        "offerLettersReceived":0,
+        "resume":""
+    }
+]

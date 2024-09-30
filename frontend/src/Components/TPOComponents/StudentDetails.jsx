@@ -4,18 +4,30 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import "../TPOComponents/studentDetails.css"
 import editUser from "../../Assests/EditUser.png"
+import studentData from "../data/StudentsData.json"
+const PDF_FILE_URL = "http://localhost:3000/YaminiChintaProfile.pdf"
 
 const StudentDetails=()=>{
     const [studentDetailslist, setStudentDetailsList]=useState([]);
+
+    const onButtonClick=(url)=>{
+        const fileName=url.split("/").pop();
+        const aTag=document.createElement('a');
+        aTag.href=url;
+        aTag.setAttribute('download',fileName);
+        document.body.appendChild(aTag);
+        aTag.click();
+        aTag.remove();
+    }
     return(
         <div className="student-details-container">
             <div className="student-details-topnav">
                 <div className="student-details-top-navbar">
                     <Navbar>
                         <Navbar.Brand href="home" className="student-details-navbrand">
-                                <button type="button" className="student-details-back-btn" data-bs-placement="right" title="Back to Dashboard">
+                                <button type="button" className="student-details-back-btn">
                                     <Link to="/TPO/Dashboard">
-                                    <i className="pi pi-chevron-circle-left mr-2 student-details-back-icon"></i>
+                                    <i className="pi pi-chevron-circle-left mr-2 student-details-back-icon"> Back</i>
                                     </Link>
                                 </button>
                                 <b className='student-details-heading'>Student Details</b></Navbar.Brand>
@@ -37,9 +49,9 @@ const StudentDetails=()=>{
                             <th scope="col">Name</th>
                             <th scope="col">Department</th>
                             <th scope="col">Percentage</th>
+                            <th scope="col">Offer Letters Recieved</th>
                             <th scope="col">Resume</th>
                             <th scope="col">Company</th>
-                            <th scope="col">Offer Letters Recieved</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,7 +61,7 @@ const StudentDetails=()=>{
                             <td>qwe</td>
                             <td>qwe</td>
                             <td>qwe</td>
-                            <td>qwe</td>
+                            <td><a class="stretched-link" className="student-details-download-pdf" onClick={()=>onButtonClick(PDF_FILE_URL)}>Download PDF</a></td>
                             <td>qwe</td>
                         </tr>
                         <tr>

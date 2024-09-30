@@ -19,9 +19,13 @@
     border: 1px solid black;
     border-radius: 6px;
     color: white;
-    background-color: #251070;
+    background-color: #2E3977;
 }
 /* ----------Card Component------------- */
+.student-card-body:hover{
+    cursor: pointer;
+}
+
 .enroll-btn{
     margin-top: 0px;
     background-color: rgb(232, 233, 235);

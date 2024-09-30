@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import '../SignUp/signup.css';
 import workimage from "../../Assests/manWorking.jpg" 
 
 const SignUp=()=>{
+    const [pdfFile, setPdfFile] = useState(null);
+
+    const handleFileChange = (event) => {
+      setPdfFile(event.target.files[0]);
+    };
     return(
         <div>
           <div className="signup-body">
@@ -65,7 +70,7 @@ const SignUp=()=>{
               </div>
               <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="resume" id="labels" className="form-label">Resume</label>
-                <input type="file" className="form-control border border-dark"  onChange={(e)=>{}} placeholder='Resume'/>
+                <input type="file" accept=".pdf" className="form-control border border-dark"  onChange={handleFileChange} placeholder='Resume'/>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="rollNumber" id="labels" className="form-label">Roll Number</label>

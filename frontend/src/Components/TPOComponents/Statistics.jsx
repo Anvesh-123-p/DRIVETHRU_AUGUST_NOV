@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Bar, Doughnut, Line } from "react-chartjs-2";
 import "../TPOComponents/statistics.css";
@@ -18,6 +18,11 @@ defaults.plugins.title.font.size = 20;
 defaults.plugins.title.color = "black";
 
 const Statistics=()=>{
+    const [selectedValue, setSelectedValue] = useState("");
+
+    const handleChange = (event) => {
+        setSelectedValue(event.target.value);
+    };
     return(
         <div className="statistics-container">
             <div className="statistics-topnav">
@@ -43,41 +48,23 @@ const Statistics=()=>{
             </div>
 
             <div className="statistics-body-containeer">
-                <div className="statistics-body">
-                    <div className="dataCard revenueCard">
-                    <Line
-                    data={{
-                        labels: revenueData.map((data) => data.label),
-                        datasets: [
-                        {
-                            label: "Revenue",
-                            data: revenueData.map((data) => data.revenue),
-                            backgroundColor: "#064FF0",
-                            borderColor: "#064FF0",
-                        },
-                        {
-                            label: "Cost",
-                            data: revenueData.map((data) => data.cost),
-                            backgroundColor: "#FF3030",
-                            borderColor: "#FF3030",
-                        },
-                        ],
-                    }}
-                    options={{
-                        elements: {
-                        line: {
-                            tension: 0.5,
-                        },
-                        },
-                        plugins: {
-                        title: {
-                            text: "Monthly Revenue & Cost",
-                        },
-                        },
-                    }}
-                    />
+                <div className="statistics-dropdown-export">
+                    <div class="input-group statistics-dropdown">
+                        <label class="input-group-text statistics-export-btn" for="inputGroupSelect01">Select</label>
+                        <select class="form-select" id="inputGroupSelect01" value={selectedValue} onChange={handleChange}>
+                            <option value="">Yearly Placed Students & Non-Placed Students</option>
+                            <option value="Last 5 Year Statistics">Last 5 Year Statistics</option>
+                            <option value="Last Year Statistics ">Last Year Statistics </option>
+                            <option value="Placed Students">Placed Students</option>
+                            <option value="Students placed in Companies">Students placed in Companies</option>
+                            <option value="Technical & Non-Techical">Technical & Non-Techical</option>
+                        </select>
                     </div>
-
+                    <button class="btn btn-outline-primary statistics-export-btn" type="button" >Export</button>    
+                </div>
+                <div className="statistics-body">
+                    {selectedValue ?
+                    (<>
                     <div className="dataCard customerCard">
                     <Bar
                     data={{
@@ -90,6 +77,8 @@ const Statistics=()=>{
                             "rgba(43, 63, 229, 0.8)",
                             "rgba(250, 192, 19, 0.8)",
                             "rgba(253, 135, 135, 0.8)",
+                            "rgba(255, 132, 252, 0.8)",
+                            "rgba(158, 196, 4, 0.8)",
                             ],
                             borderRadius: 5,
                         },
@@ -98,7 +87,7 @@ const Statistics=()=>{
                     options={{
                         plugins: {
                         title: {
-                            text: "Revenue Source",
+                            text: selectedValue
                         },
                         },
                     }}
@@ -117,11 +106,15 @@ const Statistics=()=>{
                             "rgba(43, 63, 229, 0.8)",
                             "rgba(250, 192, 19, 0.8)",
                             "rgba(253, 135, 135, 0.8)",
+                            "rgba(255, 132, 252, 0.8)",
+                            "rgba(158, 196, 4, 0.8)",
                             ],
                             borderColor: [
                             "rgba(43, 63, 229, 0.8)",
                             "rgba(250, 192, 19, 0.8)",
                             "rgba(253, 135, 135, 0.8)",
+                            "rgba(255, 132, 252, 0.8)",
+                            "rgba(158, 196, 4, 0.8)",
                             ],
                         },
                         ],
@@ -129,12 +122,47 @@ const Statistics=()=>{
                     options={{
                         plugins: {
                         title: {
-                            text: "Revenue Sources",
+                            text: selectedValue,
                         },
                         },
                     }}
                     />
                     </div>
+                    </>):
+                    (<>
+                    <div className={`dataCard revenueCard`}>
+                    <Line
+                    data={{
+                        labels: revenueData.map((data) => data.label),
+                        datasets: [
+                        {
+                            label: "Placed Students",
+                            data: revenueData.map((data) => data.revenue),
+                            backgroundColor: "#064FF0",
+                            borderColor: "#064FF0",
+                        },
+                        {
+                            label: "Non Placed Students",
+                            data: revenueData.map((data) => data.cost),
+                            backgroundColor: "#FF3030",
+                            borderColor: "#FF3030",
+                        },
+                        ],
+                    }}
+                    options={{
+                        elements: {
+                        line: {
+                            tension: 0.5,
+                        },
+                        },
+                        plugins: {
+                        title: {
+                            text: "Yearly Placed Students & Non-Placed Students",
+                        },
+                        },
+                    }}
+                    />
+                    </div></>)}
                 </div>
             </div>
         </div>

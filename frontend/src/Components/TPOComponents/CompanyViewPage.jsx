@@ -5,8 +5,18 @@ import { Link } from 'react-router-dom';
 import "../TPOComponents/companyViewPage.css"
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import { useParams, useLocation } from 'react-router-dom';
 
 const CompanyViewPage=()=>{
+  const location = useLocation();
+  let CompanyData=undefined;
+  if(location.state){
+    CompanyData=location.state.companyData;
+  }
+  
+
+//   const user = location.state?.userId;
+
     return(
         <div className="companyViewPage-container">
             <div className="companyViewPage-topnav">
@@ -35,27 +45,27 @@ const CompanyViewPage=()=>{
                     <div className="companyViewPage-company-details">
                         <div class="row">
                             <div class="col-lg-4 col-md-auto">
-                                <h5 className="companyViewPage-company-details-heading">Company Name:<p className="compViewPage-paragraph">TCS{}</p></h5>
+                                <h5 className="companyViewPage-company-details-heading">Company Name:<p className="compViewPage-paragraph">{CompanyData.name}</p></h5>
                             </div>
                             <div class="col-lg-2 col-md-auto">
-                                <h5>CTC:<p className="compViewPage-paragraph">{}</p></h5>
+                                <h5 className="companyViewPage-company-details-heading">CTC:<p className="compViewPage-paragraph">{CompanyData.CTC} Lakh</p></h5>
                             </div>
                             <div class="col-lg-3 col-md-auto">
-                                <h5>No.of Students Enrolled:<p className="compViewPage-paragraph">{}</p></h5>
+                                <h5 className="companyViewPage-company-details-heading">No.of Students Enrolled:<p className="compViewPage-paragraph">{}</p></h5>
                             </div>
                             <div class="col-lg-2 col-md-4"></div>
                         </div>
                         <div class="row">
                             <div class="col-md-auto">
-                                <h5>About:<p className="compViewPage-paragraph">{}</p></h5>
+                                <h5 className="companyViewPage-company-details-heading">Job Role Discription :<p className="compViewPage-paragraph">{CompanyData.description}</p></h5>
                             </div>
                         </div>
                     </div>
                     <div className="companyViewPage-seachbar">
                     <div className='row g-2'>
                         <div className="col-md-4 col-sm-6 form-group">
-                            <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                            <div class="input-group">
+                                <label class="input-group-text companyViewPage-search-btn" for="inputGroupSelect01">Department</label>
                                 <select class="form-select" id="inputGroupSelect01">
                                     <option defaultValue>Choose Department...</option>
                                     <option value="CSE">Computer Science</option>
@@ -68,9 +78,9 @@ const CompanyViewPage=()=>{
                         </div>
                         <div className="col-md-4 col-sm-6 form-group"></div>
                         <div className="col-md-4 col-sm-6 form-group">
-                            <div class="input-group mb-3">
+                            <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search By Any Value"  aria-describedby="button-addon2"/>
-                                <button class="btn btn-outline-primary" type="button" id="button-addon2">Search</button>
+                                <button class="btn btn-outline-primary companyViewPage-search-btn" type="button" id="button-addon2">Search</button>
                             </div>
                         </div>                
                     </div>

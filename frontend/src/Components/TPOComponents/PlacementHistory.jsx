@@ -13,9 +13,9 @@ const PlacementHistory=()=>{
                 <div className="placement-history-top-navbar">
                     <Navbar>
                         <Navbar.Brand href="home" className="placement-history-navbrand">
-                                <button type="button" className="placement-history-back-btn" data-bs-placement="right" title="Back to Dashboard">
+                                <button type="button" className="placement-history-back-btn">
                                     <Link to="/TPO/Dashboard">
-                                    <i className="pi pi-chevron-circle-left mr-2 placement-history-back-icon"></i>
+                                    <i className="pi pi-chevron-circle-left mr-2 placement-history-back-icon"> Back</i>
                                     </Link>
                                 </button>
                                 <b className='placement-history-heading'>Placement History</b></Navbar.Brand>
