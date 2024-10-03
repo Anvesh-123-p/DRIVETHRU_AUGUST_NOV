@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import revenueData from "../data/revenueData.json";
 import sourceData from "../data/sourceData.json";
 
+import * as XLSX from 'xlsx';
+
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
 
@@ -23,6 +25,15 @@ const Statistics=()=>{
     const handleChange = (event) => {
         setSelectedValue(event.target.value);
     };
+
+
+    const exportToExcel = (data, fileName) => {
+        const ws = XLSX.utils.json_to_sheet(data);
+        const wb = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+        XLSX.writeFile(wb, fileName + ".xlsx");
+    };
+
     return(
         <div className="statistics-container">
             <div className="statistics-topnav">
@@ -60,7 +71,7 @@ const Statistics=()=>{
                             <option value="Technical & Non-Techical">Technical & Non-Techical</option>
                         </select>
                     </div>
-                    <button class="btn btn-outline-primary statistics-export-btn" type="button" >Export</button>    
+                    <button class="btn btn-outline-primary statistics-export-btn" onClick={() => exportToExcel(revenueData, 'my-revenue-data')}>Export</button>    
                 </div>
                 <div className="statistics-body">
                     {selectedValue ?

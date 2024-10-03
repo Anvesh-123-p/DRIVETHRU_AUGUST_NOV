@@ -45,23 +45,23 @@ const SignUp=()=>{
                 <h1>Register Yourself</h1>   
             </div>
 
-            <form onSubmit={onSubmitSignupForm}>
+            <form class="needs-validation" onSubmit={onSubmitSignupForm} >
             <div className="g-2"> 
               <div className='row g-2'>
                 <div className="col-lg-3 col-md-3">
                     <label htmlFor="inputname" className="form-label">First Name</label>
-                    <input type="text" className="form-control border border-dark" onChange={(e)=>{setFirstName(e.target.value)}} placeholder='Name' id="inputname"/>
+                    <input type="text" id="inputname" className="form-control border border-dark" onChange={(e)=>{setFirstName(e.target.value)}} placeholder='Name' required/>
                 </div>
                 <div className="col-lg-3 col-md-3">
                     <label htmlFor="inputname" className="form-label">Last Name</label>
-                    <input type="text" className="form-control border border-dark" onChange={(e)=>{setLastName(e.target.value)}} placeholder='Name' id="inputname"/>
+                    <input type="text" className="form-control border border-dark" onChange={(e)=>{setLastName(e.target.value)}} placeholder='Name' id="inputname" required/>
                 </div>
               </div>
               <div className='row g-2'>
                 <div className="col-lg-3 col-md-3 ">
                   <label htmlFor="inputState" className="form-label ">Department</label>
-                  <select id="inputState" onChange={(e)=>{setDepartment(e.target.value)}} className="form-select border border-dark">
-                  <option defaultValue>Department</option>
+                  <select id="inputState" onChange={(e)=>{setDepartment(e.target.value)}} className="form-select border border-dark" required>
+                  <option defaultValue value="">Department</option>
                   <option value="CSE">Computer Science</option>
                   <option value="ECE">Electrical </option>
                   <option value="MECH">Mechanical</option>
@@ -72,8 +72,8 @@ const SignUp=()=>{
                 
                 <div className="col-lg-3 col-md-3 ">
                   <label htmlFor="inputState" className="form-label ">Gender</label>
-                  <select id="inputState" onChange={(e)=>{setGender(e.target.value)}} className="form-select border border-dark">
-                  <option defaultValue>Gender</option>
+                  <select id="inputState" onChange={(e)=>{setGender(e.target.value)}} className="form-select border border-dark" required>
+                  <option defaultValue value="">Gender</option>
                   <option value="M">Male</option>
                   <option value="F">Female</option>
                   </select>
@@ -82,30 +82,30 @@ const SignUp=()=>{
 
               <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="email"   className="form-label" >Email</label>
-                <input type="email" className="form-control border border-dark" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" aria-describedby="emailHelp"/>
+                <input type="email" className="form-control border border-dark" onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" required/>
               </div>
               
               <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="mobileNumber"   className="form-label" >Mobile Number</label>
-                <input type="text" className="form-control border border-dark" onChange={(e)=>{setMobileNumber(e.target.value)}} placeholder='Mobile Number' aria-describedby="emailHelp"/>
+                <input type="text" className="form-control border border-dark" onChange={(e)=>{setMobileNumber(e.target.value)}} placeholder='Mobile Number' required/>
               </div>
               <div className="mb-0 col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="password"   className="form-label" >Password</label>
-                <input type="password" className="form-control border border-dark"  onChange={(e)=>{setPassword(e.target.value)}} placeholder='Password' aria-describedby="emailHelp"/>
+                <input type="password" className="form-control border border-dark"  onChange={(e)=>{setPassword(e.target.value)}} placeholder='Password' required/>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="percentage"className="form-label">Percentage</label>
-                <input type="text" className="form-control border border-dark" onChange={(e)=>{setPercentage(e.target.value)}} placeholder="Percentage" />
+                <input type="text" className="form-control border border-dark" onChange={(e)=>{setPercentage(e.target.value)}} placeholder="Percentage" required/>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="resume"className="form-label">Resume</label>
-                <input type="file" accept=".pdf" className="form-control border border-dark"  onChange={(e)=>setResumeFile(e.target.files[0])} placeholder='Resume'/>
+                <input type="file" accept=".pdf" className="form-control border border-dark"  onChange={(e)=>setResumeFile(e.target.files[0])} placeholder='Resume' required/>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-2">
                 <label htmlFor="rollNumber" className="form-label">Roll Number</label>
-                <input type="text" className="form-control border border-dark" onChange={(e)=>{setRollNo(e.target.value)}} placeholder='Roll Number'  />
+                <input type="text" className="form-control border border-dark" onChange={(e)=>{setRollNo(e.target.value)}} placeholder='Roll Number'  required/>
               </div>
-              <button type="submit"  className={"btn btn-dark buttons"}>Submit</button>
+              <button type="submit"  className="btn btn-dark buttons">Submit</button>
            
             </div> 
             </form>

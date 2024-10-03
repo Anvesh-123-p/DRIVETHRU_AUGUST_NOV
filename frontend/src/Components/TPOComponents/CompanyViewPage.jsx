@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
@@ -8,14 +8,53 @@ import Tabs from 'react-bootstrap/Tabs';
 import { useParams, useLocation } from 'react-router-dom';
 
 const CompanyViewPage=()=>{
-  const location = useLocation();
-  let CompanyData=undefined;
-  if(location.state){
-    CompanyData=location.state.companyData;
-  }
-  
+    const location = useLocation();
+    let CompanyData=undefined;
+    if(location.state){
+        CompanyData=location.state.companyData;
+    }
+    
+    //useEffect(async () => {
+    //     const result = await axios.get("", CompanyData.name)
+    //     if(result.data.status=="ok"){
+    //         setStudentDataList(result.data)
+    //     }
+    //   },[])
 
-//   const user = location.state?.userId;
+    const [studentlist, setStudentList]=useState([]);
+    const [filterStudentlist, setFilterStudentlist] = useState([])
+    const [searchQuery, setSearchQuery]=useState("");
+
+    const onSearchByDept=(e)=>{
+        const value=e.target.value;
+        console.log(value);
+        
+        const filteredRows = studentlist.filter((row) => {
+            return row.department.toString().toLowerCase().includes(value.toString().toLowerCase());
+        });
+        if (value.length < 1) {
+            setFilterStudentlist(studentlist)
+        }
+        else {
+            setFilterStudentlist(filteredRows)
+        }
+    }
+
+    const onSearchByAny=(searchedVal)=>{
+        console.log(searchedVal)
+        setSearchQuery(searchedVal)
+        const filteredRows = studentlist.filter((row) => {
+            return row.name.toString().toLowerCase().includes(searchedVal.toString().toLowerCase()) ||
+            row.percentage.toString().toLowerCase().includes(searchedVal.toString().toLowerCase()) ||
+            row.department.toString().toLowerCase().includes(searchedVal.toString().toLowerCase());
+        });
+        if (searchedVal.length < 1) {
+            setFilterStudentlist(studentlist)
+        }
+        else {
+            setFilterStudentlist(filteredRows)
+        }
+    }
 
     return(
         <div className="companyViewPage-container">
@@ -66,7 +105,7 @@ const CompanyViewPage=()=>{
                         <div className="col-md-4 col-sm-6 form-group">
                             <div class="input-group">
                                 <label class="input-group-text companyViewPage-search-btn" for="inputGroupSelect01">Department</label>
-                                <select class="form-select" id="inputGroupSelect01">
+                                <select class="form-select" id="inputGroupSelect01" onChange={(e)=>{onSearchByDept(e)}}>
                                     <option defaultValue>Choose Department...</option>
                                     <option value="CSE">Computer Science</option>
                                     <option value="ECE">Electrical </option>
@@ -79,8 +118,8 @@ const CompanyViewPage=()=>{
                         <div className="col-md-4 col-sm-6 form-group"></div>
                         <div className="col-md-4 col-sm-6 form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search By Any Value"  aria-describedby="button-addon2"/>
-                                <button class="btn btn-outline-primary companyViewPage-search-btn" type="button" id="button-addon2">Search</button>
+                                <input type="text" class="form-control" placeholder="Search By Any Value"  aria-describedby="button-addon2" onChange={(e)=>onSearchByAny(e.target.value)}/>
+                                <button class="btn btn-outline-primary companyViewPage-search-btn" type="button" id="button-addon2" onClick={(e)=>onSearchByAny(searchQuery)}>Search</button>
                             </div>
                         </div>                
                     </div>
@@ -112,7 +151,11 @@ const CompanyViewPage=()=>{
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                    </div>
+                                </td>
                                 <td>qwe</td>
                                 <td>qwe</td>
                                 <td>qwe</td>
@@ -123,7 +166,11 @@ const CompanyViewPage=()=>{
                                 <td><input type="text" id="comment" className="form-control comment-input" /></td>
                             </tr>
                             <tr>
-                                <td>2</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                    </div>
+                                </td>
                                 <td>qwe</td>
                                 <td>qwe</td>
                                 <td>qwe</td>
@@ -134,7 +181,11 @@ const CompanyViewPage=()=>{
                                 <td><input type="text" id="comment" className="form-control comment-input" /></td>
                             </tr>
                             <tr>
-                                <td>3</td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                    </div>
+                                </td>
                                 <td>qwe</td>
                                 <td>qwe</td>
                                 <td>qwe</td>
@@ -144,19 +195,83 @@ const CompanyViewPage=()=>{
                                 <td>qwe</td>
                                 <td><input type="text" id="comment" className="form-control comment-input" /></td>
                             </tr>
-                            {/* {studentlist.map((student)=>{
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                    </div>
+                                </td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                    </div>
+                                </td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                    </div>
+                                </td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                    </div>
+                                </td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
+                            </tr>
+                            {/* {studentlist.map((student)=>
                                 <tr>
-                                    <th scope="row">{}</th>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                        </div>
+                                    </td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
                                     <td><input type="text" id="comment" className="form-control comment-input" /></td>
                                 </tr>
-                            })} */}
+                            )} */}
                         </tbody>
                         </table>
                     </div>
@@ -218,19 +333,27 @@ const CompanyViewPage=()=>{
                             </tr>
                             {/* {studentlist.map((student)=>{
                                 <tr>
-                                    <th scope="row">{}</th>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                        </div>
+                                    </td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
                                     <td><input type="text" id="comment" className="form-control comment-input" /></td>
                                 </tr>
                             })} */}
                         </tbody>
                         </table>
+                    </div>
+                    <div className="companyViewPage-buttons">
+                        <button type="button" class="btn btn-secondary cancel-drive-button">Cancel Drive</button>
+                        <button type="button" class="btn btn-primary submit-drive-button">Submit</button>
                     </div>
                     </Tab>
                     <Tab eventKey="Round3" title="Round 3">
@@ -283,21 +406,63 @@ const CompanyViewPage=()=>{
                                 <td>qwe</td>
                                 <td><input type="text" id="comment" className="form-control comment-input" /></td>
                             </tr>
-                            {/* {studentlist.map((student)=>{
+                            <tr>
+                                <td>3</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td>qwe</td>
+                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
+                            </tr>
+                            
+                            {/* {studentlist.map((student)=>
                                 <tr>
-                                    <th scope="row">{}</th>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                        </div>
+                                    </td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
                                     <td><input type="text" id="comment" className="form-control comment-input" /></td>
                                 </tr>
-                            })} */}
+                            )} */}
                         </tbody>
                         </table>
+                    </div>
+                    <div className="companyViewPage-buttons">
+                        <button type="button" class="btn btn-secondary cancel-drive-button">Cancel Drive</button>
+                        <button type="button" class="btn btn-primary submit-drive-button">Submit</button>
                     </div>
                     </Tab>
                     <Tab eventKey="HRRound" title="HR Round">
@@ -352,19 +517,27 @@ const CompanyViewPage=()=>{
                             </tr>
                             {/* {studentlist.map((student)=>{
                                 <tr>
-                                    <th scope="row">{}</th>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                        </div>
+                                    </td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
                                     <td><input type="text" id="comment" className="form-control comment-input" /></td>
                                 </tr>
                             })} */}
                         </tbody>
                         </table>
+                    </div>
+                    <div className="companyViewPage-buttons">
+                        <button type="button" class="btn btn-secondary cancel-drive-button">Cancel Drive</button>
+                        <button type="button" class="btn btn-primary submit-drive-button">Submit</button>
                     </div>
                     </Tab>
                     <Tab eventKey="UploadOfferLetter" title="Upload Offer Letter">
@@ -419,19 +592,27 @@ const CompanyViewPage=()=>{
                             </tr>
                             {/* {studentlist.map((student)=>{
                                 <tr>
-                                    <th scope="row">{}</th>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
-                                    <td>{}</td>
+                                    <td>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                        </div>
+                                    </td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
+                                    <td>{student.}</td>
                                     <td><input type="text" id="comment" className="form-control comment-input" /></td>
                                 </tr>
                             })} */}
                         </tbody>
                         </table>
+                    </div>
+                    <div className="companyViewPage-buttons">
+                        <button type="button" class="btn btn-secondary cancel-drive-button">Cancel Drive</button>
+                        <button type="button" class="btn btn-primary submit-drive-button">Submit</button>
                     </div>
                     </Tab>
                     </Tabs>
