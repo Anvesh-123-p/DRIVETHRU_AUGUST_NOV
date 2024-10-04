@@ -108,6 +108,9 @@
   color: white;
 }
 /* ----------Card Component------------- */
+.hod-card-body{
+  height: 180px;
+}
 .cards-class{
     padding: 30px
 }
@@ -128,7 +131,11 @@
 .card:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
+.hod-modal-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
 @media screen and (max-width:1024px) {
   .hod-dashboard {
@@ -153,8 +160,21 @@
     height: 6vh;
     margin-right: 0;
   }
+  /* -----------card component------- */
+  .hod-card-body{
+    height: 230px;
+  }
 }
-
+@media screen and (max-width:964px) {
+  .hod-card-body{
+      height: 360px;
+  }
+}
+@media screen and (max-width:750px) {
+  .hod-card-body{
+      height: max-content;
+  }
+}
 @media screen and (max-width:540px) {
   /* -----------Nav Bar-------- */
   .hod-top-navbar{
@@ -173,6 +193,10 @@
   .hod-search-input {
     width: 30vh;
     height: 4vh;
+  }
+  /* ---------Card Component---------- */
+  .hod-card-body{
+    height: max-content;
   }
 }
 

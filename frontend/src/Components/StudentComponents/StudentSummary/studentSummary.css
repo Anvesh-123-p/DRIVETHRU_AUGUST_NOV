@@ -22,6 +22,10 @@
     background-color: #2E3977;
 }
 /* ----------Card Component------------- */
+
+.student-card-body{
+    height: 180px;
+}
 .student-card-body:hover{
     cursor: pointer;
 }
@@ -44,8 +48,30 @@
 .card:hover{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-
+.student-modal-header{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width:1024px) {
+    .student-card-body{
+        height: 230px;
+    }
+}
+@media screen and (max-width:964px) {
+    .student-card-body{
+        height: 360px;
+    }
+}
+@media screen and (max-width:750px) {
+    .student-card-body{
+        height: max-content;
+    }
+}
 @media screen and (max-width:500px) and (max-height:932px) {
+    .student-card-body{
+        height: max-content;
+    }
     .cards-class{
         padding: 12px;
     }

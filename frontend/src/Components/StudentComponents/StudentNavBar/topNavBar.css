@@ -1,9 +1,16 @@
-.heading{
+.student-home-heading{
   font-size: 30px;
+  margin-left: 20px;
 }
-
+.student-dropdown-menu{
+  background-color: white;
+  border: white;
+}
+.student-dropdown-menu:hover{
+  background-color: white;
+}
 .top-navbar{
-  padding-top: 1vh;
+  padding-top: 1.4vh;
   height: 15vh;
   background-color: rgb(255, 255, 255);
 }

@@ -32,11 +32,11 @@ const Login=()=>{
                 <form onSubmit={onSubmitLoginForm}>
                     <div className="form-group">
                         <label htmlFor="email"> Email/ Username</label>
-                        <input type="text" id="email" className="form-control" onChange={(e)=>{setEmailOrMobileNumber(e.target.value)}} />
+                        <input type="text" id="email" className="form-control" onChange={(e)=>{setEmailOrMobileNumber(e.target.value)}} required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password"> Password</label>
-                        <input type="password" id="password" className="form-control" onChange={(e)=>{setPassword(e.target.value)}}/>
+                        <input type="password" id="password" className="form-control" onChange={(e)=>{setPassword(e.target.value)}} required/>
                     </div>
 
                     <div className="form-group">

@@ -9,10 +9,10 @@ import Tooltip from 'react-bootstrap/Tooltip';
 const StudentSummary=()=>{
     const [companyDetails,setCompanyDetails] = useState(companyDetailsJson);
     const [filteredCompanyDetails,setFilteredCompanyDetails] = useState(companyDetailsJson);
-    const [searchString, setSearchString]=useState("");
     const [companyData, setCompanyData] = useState([])
     const [show, setShow] = useState(false);
     const [companyDetailsShow, setCompanyDetailsShow] = useState(false);
+    const [searchString, setSearchString] = useState("")
 
     const handleClose = () => setShow(false);
     const handleShow = () =>setShow(true);
@@ -107,8 +107,9 @@ const StudentSummary=()=>{
             centered
             >
             <Modal.Header>
-                <Modal.Title id="contained-modal-title-vcenter">
-                {companyData.name} ,  CTC: {companyData.CTC}Lakh
+                <Modal.Title   className='student-modal-header'>
+                    <span>{companyData.name}</span>
+                    <span>{companyData.CTC}Lakh</span>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

@@ -31,16 +31,16 @@ const ChangePassword=()=>{
                 <form onSubmit={onSubmitChangePassword}>
                     <div className="form-group">
                         <label htmlFor="email"> Email/ PhoneNumber</label>
-                        <input type="text" id="email" className="form-control" placeholder="Enter Email or Phonenumber" onChange={(e)=>{setEmailOrMobileNumber(e.target.value)}}/>
+                        <input type="text" id="email" className="form-control" placeholder="Enter Email or Phonenumber" onChange={(e)=>{setEmailOrMobileNumber(e.target.value)}} required/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="password">New Password</label>
-                        <input type="password" id="password" className="form-control" placeholder="Enter New Password" onChange={(e)=>{setPassword(e.target.value)}}/>
+                        <input type="password" id="password" className="form-control" placeholder="Enter New Password" onChange={(e)=>{setPassword(e.target.value)}} required/>
                     </div>
                     
                     <div className="form-group">
                         <label htmlFor="password">Confirm Password</label>
-                        <input type="password" id="cpassword" className="form-control" placeholder="Re-Enter New Password" onChange={(e)=>{setCPassword(e.target.value)}}/>
+                        <input type="password" id="cpassword" className="form-control" placeholder="Re-Enter New Password" onChange={(e)=>{setCPassword(e.target.value)}} required/>
                     </div>
                     <button type="submit" className="btn btn-class" >Change Password</button>
                 </form>

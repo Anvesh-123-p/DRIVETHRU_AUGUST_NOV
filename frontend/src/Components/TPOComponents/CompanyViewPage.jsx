@@ -6,6 +6,8 @@ import "../TPOComponents/companyViewPage.css"
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import { useParams, useLocation } from 'react-router-dom';
+import companyDetails from "../data/companyDetails.json";
+import studentsData from "../data/StudentsData.json"
 
 const CompanyViewPage=()=>{
     const location = useLocation();
@@ -24,7 +26,18 @@ const CompanyViewPage=()=>{
     const [studentlist, setStudentList]=useState([]);
     const [filterStudentlist, setFilterStudentlist] = useState([])
     const [searchQuery, setSearchQuery]=useState("");
+    const [isChecked, setIsChecked] = useState(false);
 
+
+    
+    for(let i=0;i<studentsData.length;i++){
+        console.log(studentsData[i])
+        // if(studnet.company==CompanyData.name){
+        //     studentListVar.push(studnet)
+        // }
+    }
+    
+    
     const onSearchByDept=(e)=>{
         const value=e.target.value;
         console.log(value);
@@ -56,6 +69,11 @@ const CompanyViewPage=()=>{
         }
     }
 
+    const onCheckBoxChnage=(event)=>{
+        setIsChecked(event.target.checked);
+        console.log(event.target)
+        console.log(event.target.checked);
+    }
     return(
         <div className="companyViewPage-container">
             <div className="companyViewPage-topnav">
@@ -118,7 +136,7 @@ const CompanyViewPage=()=>{
                         <div className="col-md-4 col-sm-6 form-group"></div>
                         <div className="col-md-4 col-sm-6 form-group">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search By Any Value"  aria-describedby="button-addon2" onChange={(e)=>onSearchByAny(e.target.value)}/>
+                                <input type="text" class="form-control" placeholder="Search By Any Value"  aria-describedby="button-addon2" onChange={(e)=>onSearchByAny(e.target.value)} />
                                 <button class="btn btn-outline-primary companyViewPage-search-btn" type="button" id="button-addon2" onClick={(e)=>onSearchByAny(searchQuery)}>Search</button>
                             </div>
                         </div>                
@@ -150,128 +168,23 @@ const CompanyViewPage=()=>{
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    </div>
-                                </td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    </div>
-                                </td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    </div>
-                                </td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    </div>
-                                </td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    </div>
-                                </td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    </div>
-                                </td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
-                                    </div>
-                                </td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td>qwe</td>
-                                <td><input type="text" id="comment" className="form-control comment-input" /></td>
-                            </tr>
-                            {/* {studentlist.map((student)=>
+                            {filterStudentlist.map((student)=>
                                 <tr>
                                     <td>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked={isChecked} onChange={(e)=>onCheckBoxChnage(e)}/>
                                         </div>
                                     </td>
-                                    <td>{student.}</td>
-                                    <td>{student.}</td>
-                                    <td>{student.}</td>
-                                    <td>{student.}</td>
-                                    <td>{student.}</td>
-                                    <td>{student.}</td>
-                                    <td>{student.}</td>
+                                    <td>{student.name}</td>
+                                    <td>{student.email}</td>
+                                    <td>{student.phoneNumber}</td>
+                                    <td>{student.department}</td>
+                                    <td>{student.resume}</td>
+                                    <td>{student.companiesSelected}</td>
+                                    <td>{student.hodComments}</td>
                                     <td><input type="text" id="comment" className="form-control comment-input" /></td>
                                 </tr>
-                            )} */}
+                            )}
                         </tbody>
                         </table>
                     </div>

@@ -137,6 +137,9 @@
 .tpo-card-component{
   cursor: pointer;
 }
+.tpo-card-body{
+  height: 180px;
+}
 .card-footer{
     display: flex;
     justify-content: space-between;
@@ -180,8 +183,21 @@
     width: 4vh;
     height: 4vh;
   }
+  /* -----------card component------- */
+  .tpo-card-body{
+    height: 230px;
+  }
 }
-
+@media screen and (max-width:964px) {
+  .tpo-card-body{
+      height: 360px;
+  }
+}
+@media screen and (max-width:750px) {
+  .tpo-card-body{
+      height: max-content;
+  }
+}
 @media screen and (max-width:540px) {
   /* -----------Nav Bar-------- */
   .tpo-top-navbar{
@@ -202,6 +218,10 @@
   .tpo-search-input {
     width: 30vh;
     height: 4vh;
+  }
+  /* ---------Card Component---------- */
+  .tpo-card-body{
+    height: max-content;
   }
 }
 

@@ -9,6 +9,7 @@ import Modal from 'react-bootstrap/Modal';
 import companyDetailsJson from "../data/companyDetails.json"
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import editUser from "../../Assests/EditUser.png"
 
 const Dashboard=()=>{
     const [companyDetails,setCompanyDetails] = useState(companyDetailsJson);
@@ -60,7 +61,8 @@ const Dashboard=()=>{
                         <Navbar.Toggle />
                         <Navbar.Collapse className="justify-content-end">
                         <Navbar.Text style={{marginRight:"10px"}}>
-                            Signed in as: <Link to="/ChangePassword"> Mark Otto</Link>
+                            {/* Signed in as: <Link to="/ChangePassword"> Mark Otto</Link> */}
+                            <Link to="/ChangePassword"><img src={editUser} className='upload-drive-editUser' title="Change Password"/></Link>
                         </Navbar.Text>
                         </Navbar.Collapse>
                 </Navbar>
@@ -106,7 +108,7 @@ const Dashboard=()=>{
                         <div className="card-component hod-card-component"  onClick={()=>handleCompanyShow(company)}>
                             <div class="col">
                                 <div class="card h-100">
-                                    <div class="card-body">
+                                    <div class="card-body hod-card-body">
                                         <h5 class="card-title">{company.name}</h5>
                                         <p class="card-text">{discriptonCropper(company.description)}</p>
                                     </div>
@@ -132,8 +134,9 @@ const Dashboard=()=>{
             centered
             >
             <Modal.Header>
-                <Modal.Title id="contained-modal-title-vcenter">
-                {companyData.name} ,  CTC: {companyData.CTC}Lakh
+                <Modal.Title   className='hod-modal-header'>
+                <span>{companyData.name}</span>
+                <span>{companyData.CTC}Lakh</span>
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>

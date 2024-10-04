@@ -108,7 +108,7 @@ const TPODashboard=()=>{
                         <div className="card-component tpo-card-component" onClick={()=>handleOpenCompanyViewPage(company)}>
                             <div class="col">
                                 <div class="card h-100">
-                                    <div class="card-body">
+                                    <div class="card-body tpo-card-body">
                                         <h5 class="card-title">{company.name}</h5>
                                         <p class="card-text">{discriptonCropper(company.description)}</p>
                                     </div>
